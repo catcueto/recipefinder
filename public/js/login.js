@@ -24,7 +24,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
-// When you click on this form SUBMIT
+// When you click on this form SUBMIT, then grab data
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
