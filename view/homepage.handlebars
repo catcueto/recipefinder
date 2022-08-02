@@ -1,0 +1,34 @@
+<main class="d-flex flex-column flex-md-row flex-lg-row">
+    <aside class="col-12 col-md-4 col-xl-3">
+        <h2>Popular Recipe</h2>
+        <article class="card">
+            <a href="/{{recipe.category}}/{{id}}"> </a>
+        </article>
+    </aside>
+    <section class="col-12 col-md-10 col-xl-9">
+        <h2>Recent Breakfast Recipes</h2>
+        <section>
+            {{#each gallery.breakfast as |recipe|}}
+            <article>
+                {{> recipe-details}}
+                {{/each}}
+            </article>
+        </section>
+        <h2>Recent Lunch Recipes</h2>
+        {{#each gallery.lunch as |recipe|}}
+        <section>
+            <article>
+                {{> recipe-details}}
+                {{/each}}
+            </article>
+        </section>
+        <h2>Recent Dinner Recipes</h2>
+        <section>
+            {{#each gallery.dinner as |recipe|}}
+            <article>
+                {{> recipe-details}}
+                {{/each}}
+            </article>
+        </section>
+    </section>
+</main>
