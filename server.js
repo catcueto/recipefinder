@@ -1,10 +1,10 @@
 //Dependencies
+const path = require("path");
 const express = require("express");
 // const routes = require("./routes");
 const sequelize = require("./config/connection");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
-const path = require("path");
 
 // Sets up the Express App
 const app = express();
