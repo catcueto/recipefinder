@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const Breakfast = require("../../models/newBreakfast");
+
+const Breakfast = require("../../models/Breakfast");
 
 router.get("/", async (req, res) => {
   // Stores the breakfastData in a variable
