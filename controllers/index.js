@@ -6,6 +6,5 @@ const homeRoutes = require("./home-routes");
 
 router.use("/", homeRoutes);
 router.use("/api", apiRoutes);
-router.use("/breakfast", breakfast);
 
 module.exports = router;

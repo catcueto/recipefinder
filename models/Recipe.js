@@ -32,7 +32,12 @@ Recipe.init(
       allowNull: false,
     },
 
-    user_id: DataTypes.INTEGER,
+    file_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    user_id: DataTypes.INT,
     references: {
       model: "user",
       key: "id",
@@ -43,7 +48,7 @@ Recipe.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: "recipe",
+    modelName: "recipes",
   }
 );
 

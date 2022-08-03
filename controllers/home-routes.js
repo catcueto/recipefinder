@@ -2,14 +2,22 @@ const router = require("express").Router();
 const { Recipe } = require("../models/");
 const loginAuth = require("../utils/auth");
 
-// GET all meals for homepage
 router.get("/", async (req, res) => {
   try {
+    // GET all recipes for homepage
     const dbRecipeData = await Recipes.findAll({
-      include: [{ model: Recipe, attributes: ["name", "description"] }],
+      include: [
+        {
+          model: Recipe,
+          attributes: ["name", "mealtime"],
+        },
+      ],
     });
 
+    // Serializing data so template can read it
     const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
+
+    // Passsing serialized data into login requirement into template
     res.render("homepage", {
       recipes,
       loggedIn: req.session.loggedIn,
@@ -20,7 +28,9 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Prevent non logged in users from viewing the homepage
+// TODO: WORK on /:id, findByPk
+
+// Middleware to prevent non logged in users from viewing the homepage
 router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
