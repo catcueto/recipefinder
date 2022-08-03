@@ -1,46 +1,35 @@
 <aside class="col-12 col-md-4 col-xl-3">
     <h2>Popular Recipe</h2>
     <article class="card">
-        {{!-- Need to find out how to find popular dish --}}
-        <a href="/{{recipes}}/{{id}}"></a>
+        {{!-- Finding popular recipe --}}
     </article>
 </aside>
 <section class="col-12 col-md-10 col-xl-9">
     <h2>Recent Breakfast Recipes</h2>
     <section class="breakfast-recipe">
         {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
-        {{!-- Must limit to 3 --}}
         {{#each recipes as |recipe|}}
-        {{#if recipe.breakfast}}
+        {{#if recipe.mealtime == 'breakfast'}}
             {{> recipe-details}}
         {{/if}}
         {{/each}}
     </section>
-    {{!-- For each lunch recipe --}}
-    {{!-- Must limit to 3 --}}
+    {{!-- For each lunch recipe, the 'recipe-details' partial is used to render the gallery data --}}
     <h2>Recent Lunch Recipes</h2>
     <section class="lunch-recipe">
         {{#each recipes as |recipe|}}
-        {{#if recipe.lunch}}
+        {{#if recipe.mealtime == 'lunch'}}
             {{> recipe-details}}
         {{/if}}
         {{/each}}
     </section>
-    {{!-- For each dinner recipe --}}
-    {{!-- Must limit to 3 --}}
+    {{!-- For each dinner recipe, the 'recipe-details' partial is used to render the gallery data --}}
     <h2>Recent Dinner Recipes</h2>
     <section class="dinner-recipe">
         {{#each recipes as |recipe|}}
-        {{#if recipe.dinner}}
-        {{#loop 1 4}}
-        {{!-- Add loop for latest 3 --}}
+        {{#if recipe.mealtime == 'dinner'}}
             {{> recipe-details}}
         {{/if}}
         {{/each}}
     </section>
 </section>
-
-{{!-- TODO: 
-1) Have mealtime recipes be looped of the latest 3
-2) Figure out how to display most popular recipe at line 5
---}}
