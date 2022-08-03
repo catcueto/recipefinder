@@ -32,7 +32,7 @@ Recipe.init({
             allowNull: false,
         },
 
-        image: {
+        filename: {
             type: DataTypes.STRING,
             allowNull: false,
         },
