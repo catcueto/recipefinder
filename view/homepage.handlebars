@@ -1,0 +1,35 @@
+<aside class="col-12 col-md-4 col-xl-3">
+    <h2>Popular Recipe</h2>
+    <article class="card">
+        {{!-- Finding popular recipe --}}
+    </article>
+</aside>
+<section class="col-12 col-md-10 col-xl-9">
+    <h2>Recent Breakfast Recipes</h2>
+    <section class="breakfast-recipe">
+        {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
+        {{#each recipes as |recipe|}}
+        {{#if recipe.mealtime == 'breakfast'}}
+            {{> recipe-details}}
+        {{/if}}
+        {{/each}}
+    </section>
+    {{!-- For each lunch recipe, the 'recipe-details' partial is used to render the gallery data --}}
+    <h2>Recent Lunch Recipes</h2>
+    <section class="lunch-recipe">
+        {{#each recipes as |recipe|}}
+        {{#if recipe.mealtime == 'lunch'}}
+            {{> recipe-details}}
+        {{/if}}
+        {{/each}}
+    </section>
+    {{!-- For each dinner recipe, the 'recipe-details' partial is used to render the gallery data --}}
+    <h2>Recent Dinner Recipes</h2>
+    <section class="dinner-recipe">
+        {{#each recipes as |recipe|}}
+        {{#if recipe.mealtime == 'dinner'}}
+            {{> recipe-details}}
+        {{/if}}
+        {{/each}}
+    </section>
+</section>

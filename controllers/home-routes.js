@@ -1,17 +1,15 @@
 const router = require("express").Router();
+const sequelize = require("sequelize");
 const { Recipe } = require("../models/");
 const loginAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
     // GET all recipes for homepage
-    const dbRecipeData = await Recipes.findAll({
-      include: [
-        {
-          model: Recipe,
-          attributes: ["name", "mealtime"],
-        },
-      ],
+    const dbRecipeData = await Recipe.findAll({
+      where: {
+        mealtime: 'breakfast'
+      }
     });
 
     // Serializing data so template can read it
@@ -19,7 +17,7 @@ router.get("/", async (req, res) => {
 
     // Passsing serialized data into login requirement into template
     res.render("homepage", {
-      recipes,
+      recipe,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
