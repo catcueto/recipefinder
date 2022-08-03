@@ -1,10 +1,14 @@
 //Dependencies
 const path = require("path");
 const express = require("express");
+
 // const routes = require("./routes");
 const sequelize = require("./config/connection");
 const exphbs = require("express-handlebars");
 const hbs = exphbs.create({});
+
+// Import the custom helper methods
+const helpers = require('./utils/helpers');
 
 // Sets up the Express App
 const app = express();
