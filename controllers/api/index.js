@@ -1,10 +1,14 @@
 const router = require("express").Router();
 const userRoutes = require("./userRoutes");
 const breakfastRoutes = require("./breakfastRoute");
-const LunchRoutes = require("./breakfastRoute");
+const lunchRoutes = require("./breakfastRoute");
+const dinnerRoutes = require("./dinnerRoutes");
+const newRecipe = require("./newRecipe");
 
-router.use("/travellers", travellerRoutes);
-router.use("/locations", locationRoutes);
-router.use("/trips", tripRoutes);
+router.use("/userlogin", userRoutes);
+router.use("/breakfast", breakfastRoutes);
+router.use("/lunch", lunchRoutes);
+router.use("/dinner", dinnerRoutes);
+router.use("/addyourown", newRecipe);
 
 module.exports = router;
