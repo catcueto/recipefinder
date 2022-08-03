@@ -36,7 +36,7 @@ Recipe.init(
 			allowNull: false,
 		},
 
-		user_id: DataTypes.INT,
+		user_id: DataTypes.INTEGER,
 		references: {
 			model: "user",
 			key: "id",

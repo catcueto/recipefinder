@@ -7,7 +7,7 @@
 </aside>
 <section class="col-12 col-md-10 col-xl-9">
     <h2>Recent Breakfast Recipes</h2>
-    <section>
+    <section class="breakfast-recipe">
         {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
         {{!-- Must limit to 3 --}}
         {{#each recipes as |recipe|}}
@@ -19,7 +19,7 @@
     {{!-- For each lunch recipe --}}
     {{!-- Must limit to 3 --}}
     <h2>Recent Lunch Recipes</h2>
-    <section>
+    <section class="lunch-recipe">
         {{#each recipes as |recipe|}}
         {{#if recipe.lunch}}
             {{> recipe-details}}
@@ -29,9 +29,11 @@
     {{!-- For each dinner recipe --}}
     {{!-- Must limit to 3 --}}
     <h2>Recent Dinner Recipes</h2>
-    <section>
+    <section class="dinner-recipe">
         {{#each recipes as |recipe|}}
         {{#if recipe.dinner}}
+        {{#loop 1 4}}
+        {{!-- Add loop for latest 3 --}}
             {{> recipe-details}}
         {{/if}}
         {{/each}}
