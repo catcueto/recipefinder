@@ -8,26 +8,37 @@
 <section class="col-12 col-md-10 col-xl-9">
     <h2>Recent Breakfast Recipes</h2>
     <section>
+        {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
         {{!-- Must limit to 3 --}}
-        {{#each recipes.breakfast as |recipe|}}
-        <article class="card">
-            <h3>{{name}}</h3>
-            <a href="/recipes/{{mealtime}}"></a>
-        </article>
+        {{#each recipes as |recipe|}}
+        {{#if recipe.breakfast}}
+            {{> recipe-details}}
+        {{/if}}
         {{/each}}
     </section>
+    {{!-- For each lunch recipe --}}
     {{!-- Must limit to 3 --}}
     <h2>Recent Lunch Recipes</h2>
     <section>
-        {{#each recipes.lunch as |recipe|}}
-        {{> recipe-details}}
+        {{#each recipes as |recipe|}}
+        {{#if recipe.lunch}}
+            {{> recipe-details}}
+        {{/if}}
         {{/each}}
     </section>
+    {{!-- For each dinner recipe --}}
     {{!-- Must limit to 3 --}}
     <h2>Recent Dinner Recipes</h2>
     <section>
-        {{#each recipes.dinner as |recipe|}}
-        {{> recipe-details}}
+        {{#each recipes as |recipe|}}
+        {{#if recipe.dinner}}
+            {{> recipe-details}}
+        {{/if}}
         {{/each}}
     </section>
 </section>
+
+{{!-- TODO: 
+1) Have mealtime recipes be looped of the latest 3
+2) Figure out how to display most popular recipe at line 5
+--}}
