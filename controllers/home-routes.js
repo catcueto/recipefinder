@@ -1,14 +1,15 @@
 const router = require("express").Router();
-const { Recipe } = require("../models/");
+const { Recipe, User } = require("../models/");
 const loginAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // GET all recipes for homepage
-    const dbRecipeData = await Recipes.findAll({
+    // Getting all recipes for homepage
+    const dbRecipeData = await Recipe.findAll({
       include: [
         {
           model: Recipe,
+          // name and B, L, or D
           attributes: ["name", "mealtime"],
         },
       ],
@@ -28,10 +29,15 @@ router.get("/", async (req, res) => {
   }
 });
 
-// TODO: WORK on /:id, findByPk
+// TODO: Get breakfast recipes
+// router.get("/breakfast", async (req, res) => {
+//   try {
+//     const dbRecipeData = await
+//   }
+// });
 
 // Middleware to prevent non logged in users from viewing the homepage
-router.get("/", withAuth, async (req, res) => {
+router.get("/", loginAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },
