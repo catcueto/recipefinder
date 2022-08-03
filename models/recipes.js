@@ -19,12 +19,30 @@ Recipes.init({
             allowNull: false,
 
         },
+        mealtime: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        ingredients: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        instractions: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+
+        image: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
 
         user_id: DataTypes.INT,
         references: {
             model: "user",
             key: "id",
-        }
+        },
+
     },
 
     {
