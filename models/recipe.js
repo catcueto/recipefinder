@@ -2,9 +2,9 @@ const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 const User = require("./user");
 
-class Recipes extends Model {}
+class Recipe extends Model {}
 
-Recipes.init(
+Recipe.init(
 	{
 		id: {
 			type: DataTypes.INTEGER,
@@ -20,7 +20,6 @@ Recipes.init(
 			type: DataTypes.TEXT,
 			allowNull: false,
 		},
-
 		user_id: DataTypes.INT,
 		references: {
 			model: "user",
@@ -31,7 +30,7 @@ Recipes.init(
 		sequelize,
 		freezeTableName: true,
 		underscored: true,
-		modelName: "Recipes",
+		modelName: "recipe",
 	}
 );
 

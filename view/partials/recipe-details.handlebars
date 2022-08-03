@@ -1,6 +1,8 @@
-{{!-- {{#each recipes.dinner as |recipe|}}
-        {{> recipe-details}}
-        {{/each}} --}}
-    <article class="card">
-        <a href="/recipes/{{category}}"
-    </article>
+{{! Cards for each mealtime displayed in home page }}
+<article class="card">
+	<a href="/recipes/{{mealtime}}/{{id}}">
+        <img src="/images/{{filename}}" alt="{{description}}" />
+		<h3>{{recipes.name}}</h3>
+        <p>{{recipes.description}}</p>
+	</a>
+</article>

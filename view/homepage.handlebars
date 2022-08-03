@@ -2,7 +2,7 @@
     <h2>Popular Recipe</h2>
     <article class="card">
         {{!-- Need to find out how to find popular dish --}}
-        <a href="/{{recipes}}/{{id}}"> </a>
+        <a href="/{{recipes}}/{{id}}"></a>
     </article>
 </aside>
 <section class="col-12 col-md-10 col-xl-9">
@@ -10,7 +10,10 @@
     <section>
         {{!-- Must limit to 3 --}}
         {{#each recipes.breakfast as |recipe|}}
-        {{> recipe-details}}
+        <article class="card">
+            <h3>{{name}}</h3>
+            <a href="/recipes/{{mealtime}}"></a>
+        </article>
         {{/each}}
     </section>
     {{!-- Must limit to 3 --}}
