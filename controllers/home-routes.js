@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Recipe, User } = require("../models/");
+const { Recipe, User, AllMeals } = require("../models/");
 const loginAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
     // Passsing serialized data into login requirement into template
     res.render("homepage", {
       recipes,
-      loggedIn: req.session.loggedIn,
+      // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -47,7 +47,7 @@ router.get("/", async (req, res) => {
     // Passsing serialized data into login requirement into template
     res.render("homepage", {
       recipes,
-      loggedIn: req.session.loggedIn,
+      // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -55,7 +55,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET recent lunch recipes for homepage
+// GET recent dinner recipes for homepage
 router.get("/", async (req, res) => {
   try {
     console.log("test");
@@ -74,29 +74,6 @@ router.get("/", async (req, res) => {
     res.render("homepage", {
       recipes,
       loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-router.get("/recipe/breakfast", async (req, res) => {
-  try {
-    // GET all recipes for homepage
-    const dbRecipeData = await Recipe.findAll({
-      where: {
-        mealtime: "breakfast",
-      },
-    });
-
-    // Serializing data so template can read it
-    const recipes = dbRecipeData.map((recipe) => recipes.get({ plain: true }));
-
-    // Passsing serialized data into login requirement into template
-    res.render("homepage", {
-      recipes,
-      // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -124,6 +101,21 @@ router.get("/user", loginAuth, async (req, res) => {
   }
 });
 
+// This route takes users to the addyourown page
+router.get("/addrecipe", async (req, res) => {
+  try {
+    if (req.session.logged_in) {
+      //render Addrecipe page
+      res.render("Addrecipe");
+    } else {
+      res.redirect("/login");
+    }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// This route will take the users to login page
 router.get("/login", (req, res) => {
   // If a session exists, redirect the user to homepage
   if (req.session.logged_in) {
