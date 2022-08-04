@@ -2,19 +2,7 @@ const router = require("express").Router();
 const { Recipe, User } = require("../models/");
 const loginAuth = require("../utils/auth");
 
-
-router.get('/', async (req, res) => {
-  try {
-    // Get all recipes + joinwith user data
-    const recipeData = await Project.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
+// HOMEPAGE ROUTES
 router.get("/", async (req, res) => {
   try {
     // GET recent breakfast recipes for homepage
@@ -26,6 +14,7 @@ router.get("/", async (req, res) => {
       order: [["time_created", "DESC"]],
     });
 
+    // GET recent lunch recipes for homepage
     let recentLunchRecipes = await Recipe.findAll({
       where: {
         mealtime: "lunch",
@@ -34,6 +23,7 @@ router.get("/", async (req, res) => {
       order: [["time_created", "DESC"]],
     });
 
+    // GET recent dinner recipes for homepage
     let recentDinnerRecipes = await Recipe.findAll({
       where: {
         mealtime: "dinner",
@@ -82,25 +72,26 @@ router.get("/recipe/:id", async (req, res) => {
       // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
+    // console.log(err);
+    res.status(400).json(err);
   }
 });
 
 // Middleware to prevent non logged in users from viewing the homepage
 router.get("/user", loginAuth, async (req, res) => {
   try {
-    const userData = await User.findAll({
+    const userData = await User.findbyPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
+      include: [{ model: Recipe }],
       order: [["name", "ASC"]],
     });
 
-    const users = userData.map((project) => project.get({ plain: true }));
+    const user = userData.get({ plain: true });
     //render homepage and display user info
-    res.render("homepage", {
-      users,
+    res.render("users", {
+      ...user,
       // Check if user is logged in or not
-      // logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -125,12 +116,11 @@ router.get("/addrecipe", async (req, res) => {
 router.get("/login", (req, res) => {
   // If a session exists, redirect the user to homepage
   if (req.session.logged_in) {
-    res.redirect("/");
+    res.redirect("/users");
     return;
   }
 
   res.render("login");
-
 });
 
 module.exports = router;
