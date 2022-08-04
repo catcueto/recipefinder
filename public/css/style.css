@@ -59,7 +59,7 @@ img {
 
 /* TODO: fix css */
 .recent-cards .cards {
-    flex: 0 0 30%;
+    flex: 0 1 33%;
     flex-wrap: wrap;
 }
 
