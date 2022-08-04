@@ -5,8 +5,7 @@ const loginAuth = require("../utils/auth");
 router.get("/", async (req, res) => {
   try {
     // GET recent breakfast recipes for homepage
-    console.log("test");
-    const topRecentRecipes = await Recipe.findAll({
+    let recentBreakfastRecipes = await Recipe.findAll({
       where: {
         mealtime: "breakfast",
       },
@@ -14,39 +13,40 @@ router.get("/", async (req, res) => {
       order: [["time_created", "DESC"]],
     });
 
-    // Serializing data so template can read it
-    const recipes = topRecentRecipes.map((recipe) =>
-      recipe.get({ plain: true })
-    );
-    // Passsing serialized data into login requirement into template
-    res.render("homepage", {
-      recipes,
-      // loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// GET recent lunch recipes for homepage
-router.get("/", async (req, res) => {
-  try {
-    console.log("test");
-    const topRecentRecipes = await Recipe.findAll({
+    let recentLunchRecipes = await Recipe.findAll({
       where: {
         mealtime: "lunch",
       },
       limit: 3,
       order: [["time_created", "DESC"]],
     });
+
+    let recentDinnerRecipes = await Recipe.findAll({
+      where: {
+        mealtime: "dinner",
+      },
+      limit: 3,
+      order: [["time_created", "DESC"]],
+    });
+
     // Serializing data so template can read it
-    const recipes = topRecentRecipes.map((recipe) =>
+    recentBreakfastRecipes = recentBreakfastRecipes.map((recipe) =>
       recipe.get({ plain: true })
     );
+
+    recentLunchRecipes = recentLunchRecipes.map((recipe) =>
+      recipe.get({ plain: true })
+    );
+
+    recentDinnerRecipes = recentDinnerRecipes.map((recipe) =>
+      recipe.get({ plain: true })
+    );
+
     // Passsing serialized data into login requirement into template
     res.render("homepage", {
-      recipes,
+      recentBreakfastRecipes,
+      recentLunchRecipes,
+      recentDinnerRecipes,
       // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -55,29 +55,45 @@ router.get("/", async (req, res) => {
   }
 });
 
-// GET recent dinner recipes for homepage
-router.get("/", async (req, res) => {
+router.get("/recipe/:id", async (req, res) => {
   try {
-    console.log("test");
-    const topRecentRecipes = await Recipe.findAll({
-      where: {
-        mealtime: "dinner",
-      },
-      limit: 3,
-      order: [["time_created", "DESC"]],
-    });
+    // GET recipe to show recipe details
+    const recipeData = await Recipe.findByPk(req.params.id);
+
     // Serializing data so template can read it
-    const recipes = topRecentRecipes.map((recipe) =>
-      recipe.get({ plain: true })
-    );
+    const recipe = recipeData.get({ plain: true });
+
     // Passsing serialized data into login requirement into template
-    res.render("homepage", {
-      recipes,
-      loggedIn: req.session.loggedIn,
+    res.render("recipe-details", {
+      recipe,
+      // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
+  }
+});
+
+router.get("/recipe/breakfast", async (req, res) => {
+  try {
+    // GET all recipes for homepage
+    const dbRecipeData = await Recipe.findAll({
+      where: {
+        mealtime: "breakfast",
+      },
+    });
+
+    // Serializing data so template can read it
+    const recipes = dbRecipeData.map((recipe) => recipes.get({ plain: true }));
+
+    // Passsing serialized data into login requirement into template
+    res.render("homepage", {
+      recipes,
+      // loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(er);
   }
 });
 

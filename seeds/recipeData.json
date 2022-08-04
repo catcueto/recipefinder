@@ -1,13 +1,79 @@
 [
     {
       "id": 1,
-      "name": "Chicken",
+      "name": "ChickenBr",
       "description": "Grilled to the best",
       "mealtime": "breakfast",
       "ingredients": "chicken, onion, garlic",
       "instructions": "Bake in oven",
-      "file_name": "foodpic",
+      "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
       "user_id": 1,
       "time_created": "8/3/22"
+    },
+    {
+      "id": 2,
+      "name": "ChickenBr2",
+      "description": "Grilled to the best",
+      "mealtime": "breakfast",
+      "ingredients": "chicken, onion, garlic",
+      "instructions": "Bake in oven",
+      "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
+      "user_id": 1,
+      "time_created": "8/4/22"
+    },
+    {
+      "id": 3,
+      "name": "ChickenBr3",
+      "description": "Grilled to the best",
+      "mealtime": "breakfast",
+      "ingredients": "chicken, onion, garlic",
+      "instructions": "Bake in oven",
+      "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
+      "user_id": 1,
+      "time_created": "8/5/22"
+    },
+    {
+      "id": 4,
+      "name": "ChickenL1",
+      "description": "Grilled to the best",
+      "mealtime": "lunch",
+      "ingredients": "chicken, onion, garlic",
+      "instructions": "Bake in oven",
+      "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
+      "user_id": 1,
+      "time_created": "8/3/22"
+    },
+    {
+      "id": 5,
+      "name": "ChickenL2",
+      "description": "Grilled to the best",
+      "mealtime": "lunch",
+      "ingredients": "chicken, onion, garlic",
+      "instructions": "Bake in oven",
+      "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
+      "user_id": 1,
+      "time_created": "8/4/22"
+    },
+    {
+      "id": 6,
+      "name": "ChickenD1",
+      "description": "Grilled to the best",
+      "mealtime": "dinner",
+      "ingredients": "chicken, onion, garlic",
+      "instructions": "Bake in oven",
+      "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
+      "user_id": 1,
+      "time_created": "8/5/22"
+    },
+    {
+      "id": 7,
+      "name": "ChickenBr4",
+      "description": "Grilled to the best",
+      "mealtime": "breakfast",
+      "ingredients": "chicken, onion, garlic",
+      "instructions": "Bake in oven",
+      "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
+      "user_id": 1,
+      "time_created": "8/5/22"
     }
   ]
