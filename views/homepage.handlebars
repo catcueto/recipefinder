@@ -1,12 +1,12 @@
-<aside class="col-12 col-md-4 col-xl-3">
+<aside class="col-12 col-md-4 col-xl-3 m-3">
     <h2>Popular Recipe</h2>
     <article class="card">
         {{!-- Finding popular recipe --}}
     </article>
 </aside>
-<section class="col-12 col-md-10 col-xl-9">
+<section class="col-12 col-md-10 col-xl-9 m-3">
     <h2>Recent Breakfast Recipes</h2>
-    <section class="breakfast-recipe">
+    <section class="breakfast-recipe col-12 col-md-10 col-lg-9 d-flex flex-row flex-wrap">
         {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
         {{#each recentBreakfastRecipes as |recipe|}}
             {{> recipe-details}}
@@ -14,14 +14,14 @@
     </section>
     {{!-- For each lunch recipe, the 'recipe-details' partial is used to render the gallery data --}}
     <h2>Recent Lunch Recipes</h2>
-    <section class="lunch-recipe">
+    <section class="lunch-recipe col-12 col-md-10 col-lg-9 d-flex flex-row flex-wrap">
         {{#each recentLunchRecipes as |recipe|}}
             {{> recipe-details}}
         {{/each}}
     </section>
     {{!-- For each dinner recipe, the 'recipe-details' partial is used to render the gallery data --}}
     <h2>Recent Dinner Recipes</h2>
-    <section class="dinner-recipe">
+    <section class="dinner-recipe col-12 col-md-10 col-lg-9 d-flex flex-row flex-wrap">
         {{#each recentDinnerRecipes as |recipe|}}
             {{> recipe-details}}
         {{/each}}
