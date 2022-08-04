@@ -1,18 +1,44 @@
 const router = require("express").Router();
+const sequelize = require("sequelize");
 const { Recipe, User } = require("../models/");
-const loginAuth = require("../utils/auth");
+const withAuth = require("../utils/auth");
+// const homepage = require("");
 
 router.get("/", async (req, res) => {
   try {
-    // Getting all recipes for homepage
+    // GET recent breakfast recipes for homepage
+    console.log("test");
+    const topRecentRecipes = await Recipe.findAll({
+      where: {
+        mealtime: "breakfast",
+      },
+      limit: 3,
+      order: [["time_created", "DESC"]],
+    });
+
+    // Serializing data so template can read it
+    const recipes = topRecentRecipes.map((recipe) =>
+      recipe.get({ plain: true })
+    );
+
+    // Passsing serialized data into login requirement into template
+    res.render("homepage", {
+      recipes,
+      // loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/recipe/breakfast", async (req, res) => {
+  try {
+    // GET all recipes for homepage
     const dbRecipeData = await Recipe.findAll({
-      include: [
-        {
-          model: Recipe,
-          // name and B, L, or D
-          attributes: ["name", "mealtime"],
-        },
-      ],
+      where: {
+        mealtime: "breakfast",
+      },
     });
 
     // Serializing data so template can read it
@@ -20,8 +46,8 @@ router.get("/", async (req, res) => {
 
     // Passsing serialized data into login requirement into template
     res.render("homepage", {
-      recipes,
-      loggedIn: req.session.loggedIn,
+      recipe,
+      // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -37,7 +63,7 @@ router.get("/", async (req, res) => {
 // });
 
 // Middleware to prevent non logged in users from viewing the homepage
-router.get("/", loginAuth, async (req, res) => {
+router.get("/user", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },

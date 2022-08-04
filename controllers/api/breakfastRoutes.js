@@ -1,16 +1,20 @@
 const router = require("express").Router();
+const { Breakfast, Lunch, Dinner } = require("../../models");
 
-const Breakfast = require("../../models/Breakfast");
-
-router.get("/", async (req, res) => {
+// Get all breakfast
+router.get("/breakfast", async (req, res) => {
   // Stores the breakfastData in a variable
-  const breakfastData = await Breakfast.findAll();
-  // Returns the breakfastData promise inside of the JSON response
-  return res.json(breakfastData);
-});
+  const breakfastData = await Breakfast.findAll({
+    where: {
+      mealtime: "breakfast",
+    }
+  });
+    // R
+  const breakfast = await breakfastData.get({ plain: true })
+  res.render("breakfast", {breakfast});
+} 
+catch (err) {
+  res.status(500).json(err);
+}
 
-router.post("/", async (req, res) => {
-  // We are adding a new breakfast recipe
-  const breakfastData = await Breakfast.create(req.body);
-  return res.json(breakfastData);
-});
+module.exports = router;
