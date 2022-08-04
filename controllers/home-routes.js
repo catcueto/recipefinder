@@ -1,6 +1,19 @@
 const router = require("express").Router();
-const { Recipe, User, AllMeals } = require("../models/");
+const { Recipe, User } = require("../models/");
 const loginAuth = require("../utils/auth");
+
+
+router.get('/', async (req, res) => {
+  try {
+    // Get all recipes + joinwith user data
+    const recipeData = await Project.findAll({
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
 router.get("/", async (req, res) => {
   try {
@@ -74,7 +87,6 @@ router.get("/recipe/:id", async (req, res) => {
   }
 });
 
-
 // Middleware to prevent non logged in users from viewing the homepage
 router.get("/user", loginAuth, async (req, res) => {
   try {
@@ -95,12 +107,12 @@ router.get("/user", loginAuth, async (req, res) => {
   }
 });
 
-// This route takes users to the addyourown page
+// This route takes users to the addrecipe page
 router.get("/addrecipe", async (req, res) => {
   try {
     // if (req.session.logged_in) {
-      //render Addrecipe page
-      res.render("Addrecipe");
+    //render Addrecipe page
+    res.render("Addrecipe");
     // } else {
     //   res.redirect("/login");
     // }
@@ -118,6 +130,7 @@ router.get("/login", (req, res) => {
   }
 
   res.render("login");
+
 });
 
 module.exports = router;
