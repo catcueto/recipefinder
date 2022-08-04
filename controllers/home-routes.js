@@ -31,19 +31,19 @@ router.get("/", async (req, res) => {
 			order: [["time_created", "DESC"]],
 		});
 
-		// let featuredRecipe = await Recipe.findAll({
-		// 	include: [{ model: Recipe }],
-		// 	attributes: {
-		// 		include: [
-		// 			[
-		// 				sequelize.literal(
-		// 					"(SELECT column_name FROM table_name ORDER BY RAND() LIMIT 1')"
-		// 				),
-		// 				"featured",
-		// 			],
-		// 		],
-		// 	},
-		// });
+		let featuredRecipe = await Recipe.findAll({
+			// include: [{ model: Recipe }],
+			attributes: {
+				include: [
+					[
+						sequelize.literal(
+							`(SELECT id FROM recipe ORDER BY RAND() LIMIT 1)`
+						),
+						"featured",
+					],
+				],
+			},
+		});
 
 		// Serializing data so template can read it
 		recentBreakfastRecipes = recentBreakfastRecipes.map((recipe) =>
@@ -58,16 +58,16 @@ router.get("/", async (req, res) => {
 			recipe.get({ plain: true })
 		);
 
-		// featuredRecipe = featuredRecipe.map((recipe) =>
-		// 	recipe.get({ plain: true })
-		// );
+		featuredRecipe = featuredRecipe.map((recipe) =>
+			recipe.get({ plain: true })
+		);
 
 		// Passing serialized data into template
 		res.render("homepage", {
 			recentBreakfastRecipes,
 			recentLunchRecipes,
 			recentDinnerRecipes,
-			// featuredRecipe,
+			featuredRecipe,
 			// loggedIn: req.session.loggedIn,
 		});
 	} catch (err) {
