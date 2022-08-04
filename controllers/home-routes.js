@@ -31,19 +31,19 @@ router.get("/", async (req, res) => {
 			order: [["time_created", "DESC"]],
 		});
 
-		// let featuredRecipe = await Recipe.findAll({
-		// 	include: [{ model: Recipe }],
-		// 	attributes: {
-		// 		include: [
-		// 			[
-		// 				sequelize.literal(
-		// 					"(SELECT column_name FROM table_name ORDER BY RAND() LIMIT 1')"
-		// 				),
-		// 				"featured",
-		// 			],
-		// 		],
-		// 	},
-		// });
+		let featuredRecipe = await Recipe.findAll({
+			include: [{ model: Recipe }],
+			attributes: {
+				include: [
+					[
+						sequelize.literal(
+							"(SELECT column_name FROM table_name ORDER BY RAND() LIMIT 1')"
+						),
+						"featured",
+					],
+				],
+			},
+		});
 
 		// Serializing data so template can read it
 		recentBreakfastRecipes = recentBreakfastRecipes.map((recipe) =>
@@ -58,16 +58,16 @@ router.get("/", async (req, res) => {
 			recipe.get({ plain: true })
 		);
 
-		// featuredRecipe = featuredRecipe.map((recipe) =>
-		// 	recipe.get({ plain: true })
-		// );
+		featuredRecipe = featuredRecipe.map((recipe) =>
+			recipe.get({ plain: true })
+		);
 
 		// Passing serialized data into template
 		res.render("homepage", {
 			recentBreakfastRecipes,
 			recentLunchRecipes,
 			recentDinnerRecipes,
-			// featuredRecipe,
+			featuredRecipe,
 			// loggedIn: req.session.loggedIn,
 		});
 	} catch (err) {
@@ -76,6 +76,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
+// TODO: Get route to show recipe-details
 router.get("/recipe/:id", async (req, res) => {
 	try {
 		// GET recipe to show recipe details
@@ -95,8 +96,27 @@ router.get("/recipe/:id", async (req, res) => {
 	}
 });
 
+// GET page for breakfast recipes page
+router.get("/", async (req, res) => {
+	try {
+let breakfastRecipes = await Recipe.findAll({
+  where: {
+    mealtime: "breakfast",
+  },
+  limit: 3,
+  order: [["time_created", "DESC"]],
+}
+});
+
+// Serializing data so template can read it
+breakfastRecipes = breakfastRecipes.map((recipe) =>
+  recipe.get({ plain: true })
+);
+
+
+
 // Middleware to prevent non logged in users from viewing the homepage
-router.get("/user", loginAuth, async (req, res) => {
+router.get("/users", loginAuth, async (req, res) => {
   try {
     const userData = await User.findbyPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -116,8 +136,20 @@ router.get("/user", loginAuth, async (req, res) => {
   }
 });
 
-
 // This route takes users to the Addrecipe page
+<<<<<<< HEAD
+router.get("/addrecipe", async (req, res) => {
+  try {
+    // if (req.session.logged_in) {
+    //render Addrecipe page
+    res.render("Addrecipe");
+    // } else {
+    //   res.redirect("/login");
+    // }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+=======
 router.get("/Addrecipe", async (req, res) => {
 	try {
 		// if (req.session.logged_in) {
@@ -129,6 +161,7 @@ router.get("/Addrecipe", async (req, res) => {
 	} catch (err) {
 		res.status(500).json(err);
 	}
+>>>>>>> b41f4844473d2eb34702f64ea448b1630c53ecbb
 });
 
 // This route will take the users to login page
