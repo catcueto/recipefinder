@@ -1,6 +1,5 @@
 const router = require("express").Router();
 const { User } = require("../../models");
-const bcrypt = require("bcrypt");
 
 router.get("/", async (req, res) => {
   let userData = await User.findAll();
@@ -52,7 +51,7 @@ router.post("/login", async (req, res) => {
     // Creating session variables
     req.session.save(() => {
       req.session.user_id = userData.id;
-      req.session.username = userData.username;
+      // req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You have succesfully logged in!" });
@@ -67,7 +66,7 @@ router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     // Removing session variables
     req.session.destroy(() => {
-      res.status(204).end();
+      res.status(202).end();
     });
   } else {
     res.status(404).end();
