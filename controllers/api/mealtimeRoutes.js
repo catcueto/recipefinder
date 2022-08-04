@@ -8,12 +8,12 @@ router.get("/:mealtime", async (req, res) => {
     const pageTitle = req.params.mealtime;
     // TODO: capitalize
 
-    // Grabs the recipe identified by their meal time
-    let mealtimeRecipes = await Recipe.findAll({
-      where: {
-        mealtime: req.params.mealtime,
-      },
-    });
+		// Grabs the recipe identified by their meal time
+		let mealtimeRecipes = await Recipe.findAll({
+			where: {
+				mealtime: req.params.mealtime,
+			},
+		});
 
     // Serializing data so template can read it
     mealtimeRecipes = mealtimeRecipes.map((recipe) =>

@@ -1,3 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --black: #1b1b1b;
+    --morning-blue: #D4BEBE;
+    --champagne: #EEE0CB;
+    --grullo: #BAA898;
+    --beau-blue: #BFD7EA;
+  }
+
 body {
     width: 80%;
     margin: 2rem auto;
@@ -7,26 +19,47 @@ h1 {
     font-size: 2rem;
 }
 
+h2 {
+    font-size: 1.7rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h3, p {
+    margin: 3%;
+    color: var(--black)
+}
+
 a {
+    text-decoration: none;
+}
+
+nav a {
     margin: 1rem;
 }
 
 img {
     width: 100%;
     height: auto;
-    min-width: 30%;
+    display: flex;
+    flex-wrap: wrap;
+    /* min-width: 30%; */
 }
 
 .card {
-    flex: 0 1 30%;
+    flex: 0 1 33%;
+    /* flex-direction: row; */
     flex-wrap: wrap;
     width: 100%;
+    filter: drop-shadow(10px 5px 4px #0000002a);
 }
 
 
 /* TODO: fix css */
 .recent-cards .cards {
-    flex: 0 0 30%;
+    flex: 0 1 33%;
     flex-wrap: wrap;
 }
 
