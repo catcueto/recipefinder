@@ -9,6 +9,7 @@ router.post('/addrecipe', async (req, res) => {
     const recipeData = await recipe.create({
       name: req.body.dish_name,
       ingredients: req.body.ingredients,
+      instructions: req.body.instructions,
       mealtime: req.body.mealtime,
       filename: req.body.filename,
     });
