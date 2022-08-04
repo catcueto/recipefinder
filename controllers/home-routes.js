@@ -99,9 +99,8 @@ router.get("/user", loginAuth, async (req, res) => {
   }
 });
 
-
 // This route takes users to the Addrecipe page
-router.get("/Addrecipe", async (req, res) => {
+router.get("/addrecipe", async (req, res) => {
   try {
     // if (req.session.logged_in) {
     //render Addrecipe page
