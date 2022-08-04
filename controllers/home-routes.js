@@ -18,10 +18,10 @@ router.get("/", async (req, res) => {
     const recipes = topRecentRecipes.map((recipe) =>
       recipe.get({ plain: true })
     );
-    // Passsing serialized data into login requirement into template
+    // Passing serialized data into login requirement into template
     res.render("homepage", {
       recipes,
-      loggedIn: req.session.loggedIn,
+      // loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);

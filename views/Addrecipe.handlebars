@@ -1,5 +1,5 @@
 <section class="addRecipe">
-    <form>
+    <form action="/seeds/recipeData.json">
         <div id="name">
             <label for="yourName">Your Name</label><br>
             <input type="text" name="yourname" placeholder="Enter your name"><br>
@@ -9,7 +9,7 @@
             <input type="text" name="recipeName" placeholder="Your recipe name here">
             {{name}}
         </div>
-        <div id="ingredients">
+        <div class="ingredient">
             <label for="ingredients">What are the ingredients? (amount, unit of measurement, then ingredient)</label><br>
             <input type="text" name="ingredients" placeholder="(amount, unit of measurement, ingredient)">
             <button class="deleteIngredient" onclick="deleteIngredientBox(event)">🗑</button><br>
@@ -34,13 +34,14 @@
             {{mealtime}}
         </div>
         <div class="addFile">
-            <label for="myfile">Select a file:</label><br>
+            <label for="myfile">Select a file:</label>
+            <br>
             <input type="file" id="myfile" name="myfile">
             {{filename}}
         </div>
 
         <div class="buttons">
-            <button class="submit">Submit</button>
+            <input type="submit" value="Submit">
             <button class="clear">Clear Recipe</button>
         </div>
     </form> 
