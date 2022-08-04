@@ -1,35 +1,111 @@
 const router = require("express").Router();
-const sequelize = require("sequelize");
-const { Recipe } = require("../models/");
+const { Recipe, User } = require("../models/");
 const loginAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
-    // GET all recipes for homepage
-    const dbRecipeData = await Recipe.findAll({
+    // GET recent breakfast recipes for homepage
+    console.log("test");
+    const topRecentRecipes = await Recipe.findAll({
       where: {
-        mealtime: 'breakfast'
-      }
+        mealtime: "breakfast",
+      },
+      limit: 3,
+      order: [["time_created", "DESC"]],
     });
 
     // Serializing data so template can read it
-    const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
-
+    const recipes = topRecentRecipes.map((recipe) =>
+      recipe.get({ plain: true })
+    );
     // Passsing serialized data into login requirement into template
     res.render("homepage", {
-      recipe,
+      recipes,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(er);
+    res.status(500).json(err);
   }
 });
 
-// TODO: WORK on /:id, findByPk
+// GET recent lunch recipes for homepage
+router.get("/", async (req, res) => {
+  try {
+    console.log("test");
+    const topRecentRecipes = await Recipe.findAll({
+      where: {
+        mealtime: "lunch",
+      },
+      limit: 3,
+      order: [["time_created", "DESC"]],
+    });
+    // Serializing data so template can read it
+    const recipes = topRecentRecipes.map((recipe) =>
+      recipe.get({ plain: true })
+    );
+    // Passsing serialized data into login requirement into template
+    res.render("homepage", {
+      recipes,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET recent lunch recipes for homepage
+router.get("/", async (req, res) => {
+  try {
+    console.log("test");
+    const topRecentRecipes = await Recipe.findAll({
+      where: {
+        mealtime: "dinner",
+      },
+      limit: 3,
+      order: [["time_created", "DESC"]],
+    });
+    // Serializing data so template can read it
+    const recipes = topRecentRecipes.map((recipe) =>
+      recipe.get({ plain: true })
+    );
+    // Passsing serialized data into login requirement into template
+    res.render("homepage", {
+      recipes,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+router.get("/recipe/breakfast", async (req, res) => {
+  try {
+    // GET all recipes for homepage
+    const dbRecipeData = await Recipe.findAll({
+      where: {
+        mealtime: "breakfast",
+      },
+    });
+
+    // Serializing data so template can read it
+    const recipes = dbRecipeData.map((recipe) => recipes.get({ plain: true }));
+
+    // Passsing serialized data into login requirement into template
+    res.render("homepage", {
+      recipes,
+      // loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // Middleware to prevent non logged in users from viewing the homepage
-router.get("/", withAuth, async (req, res) => {
+router.get("/user", loginAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },
