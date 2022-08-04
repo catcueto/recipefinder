@@ -1,8 +1,19 @@
 {{! Cards for each mealtime displayed in home page }}
 <article class="card">
-	<a href="/recipe/{{mealtime}}/{{id}}">
-        <img src="/images/{{filename}}" alt="{{description}}" />
-		<h3>{{recipe.name}}</h3>
-        <p>{{recipe.description}}</p>
+	<a href="/recipe/{{id}}">
+		<img src="/images/{{file_name}}" alt="{{description}}" />
+		<h3>{{name}}</h3>
+		<p>{{description}}</p>
 	</a>
 </article>
+{{!-- 
+<article class="card m-2">
+	<a href="/recipe/{{mealtime}}/{{id}}">
+		<img
+			src="/images/sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg"
+			alt="{{description}}"
+		/>
+		<h3>Grilled Chicken</h3>
+		<p>Grilled to the best</p>
+	</a>
+</article> --}}

@@ -8,28 +8,22 @@
     <h2>Recent Breakfast Recipes</h2>
     <section class="breakfast-recipe">
         {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
-        {{!-- {{#each recipes as |recipe|}}
-        {{#if recipe.mealtime == 'breakfast'}}
+        {{#each recentBreakfastRecipes as |recipe|}}
             {{> recipe-details}}
-        {{/if}}
-        {{/each}} --}}
+        {{/each}}
     </section>
     {{!-- For each lunch recipe, the 'recipe-details' partial is used to render the gallery data --}}
     <h2>Recent Lunch Recipes</h2>
     <section class="lunch-recipe">
-        {{!-- {{#each recipes as |recipe|}}
-        {{#if recipe.mealtime == 'lunch'}}
+        {{#each recentLunchRecipes as |recipe|}}
             {{> recipe-details}}
-        {{/if}}
-        {{/each}} --}}
+        {{/each}}
     </section>
     {{!-- For each dinner recipe, the 'recipe-details' partial is used to render the gallery data --}}
     <h2>Recent Dinner Recipes</h2>
     <section class="dinner-recipe">
-        {{!-- {{#each recipes as |recipe|}}
-        {{#if recipe.mealtime == 'dinner'}}
+        {{#each recentDinnerRecipes as |recipe|}}
             {{> recipe-details}}
-        {{/if}}
-        {{/each}} --}}
+        {{/each}}
     </section>
 </section>
