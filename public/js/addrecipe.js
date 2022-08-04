@@ -1,4 +1,5 @@
 const addBtn = document.getElementById('addNewIngredient');
+const mealtime = document.querySelector('meal');
 
 // Add a new ingredient box and delete button.
 addIngredientBox => {
@@ -30,7 +31,7 @@ const response = await fetch(`/api/dish`, {
     body: JSON.stringify({
       name,
       ingredients,
-      gmealtime,
+      mealtime,
       filename,
     }),
     headers: {

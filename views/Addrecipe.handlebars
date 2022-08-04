@@ -30,11 +30,13 @@
     </div>
 =======
 <section class="addRecipe ">
-    <form action="/seeds/recipeData.json">
-        <div id="name">
+    <form method="POST" action="/">
+        {{!-- <div id="name">
             <label for="yourName">Your Name</label><br>
-            <input type="text" name="yourname" placeholder="Enter your name"><br>
-        </div>
+            <textarea name="yourname" placeholder="Enter your name">
+            </textarea>
+            <br>
+        </div> --}}
         <div id="recipeName">
             <label for="recipeName">What is the name of your recipe?</label><br>
             <textarea name="recipeName" placeholder="Your recipe name here">
@@ -83,19 +85,17 @@
         </div>
         <div class="meal">
             <p>What meal is his recipe for?</p>
-            <input type="radio" name="meal" value="Breakfast">
+            <input type="radio" class="meal" name="meal" value="Breakfast">
             <label for="Breakfast">Breakfast</label><br>
             <input type="radio" name="meal" value="Lunch">
             <label for="Lunch">Lunch</label><br>
             <input type="radio" name="meal" value="Dinner">
             <label for="Dinner">Dinner</label>
-            {{mealtime}}
         </div>
         <div class="addFile">
             <label for="myfile">Select a file:</label>
             <br>
             <input type="file" id="myfile" name="myfile">
-            {{filename}}
         </div>
 >>>>>>> 69baef0b9654756264b3508c5db66dee37a164ce
 
