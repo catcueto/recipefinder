@@ -1,12 +1,22 @@
 const router = require("express").Router();
 const { User } = require("../../models");
+const bcrypt = require("bcrypt");
 
+router.get("/", async (req, res) => {
+  let userData = await User.findAll();
+  let user = userData.map((user) => user.get({ plain: true }));
+  res.json(user);
+});
+
+// This route will create a new user
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create(req.body);
+    console.log(userData);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.status(200).json(userData);
@@ -16,33 +26,33 @@ router.post("/", async (req, res) => {
   }
 });
 
+// This route creates users login
 router.post("/login", async (req, res) => {
   try {
     // Finding the user that matches the posted username
     const userData = await User.findOne({
-      where: { username: req.body.username },
+      where: {
+        username: req.body.username,
+      },
     });
 
     if (!userData) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or password. Please try again" });
+      res.status(400).json({ message: "Incorrect username or password" });
       return;
     }
-
     // Verifying that entered password matches password stored in db
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect username or password. Please try again" });
+        .json({ message: "Incorrect username or pasword, please try again." });
       return;
     }
-
     // Creating session variables
     req.session.save(() => {
       req.session.user_id = userData.id;
+      req.session.username = userData.username;
       req.session.logged_in = true;
 
       res.json({ user: userData, message: "You have succesfully logged in!" });
@@ -52,6 +62,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
+// This route will log users out
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     // Removing session variables

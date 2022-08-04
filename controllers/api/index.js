@@ -1,10 +1,12 @@
-// const router = require("express").Router();
-// // const userRoutes = require("./userRoutes");
-// // const breakfastRoutes = require("./breakfastRoute");
-// // const LunchRoutes = require("./breakfastRoute");
+const router = require("express").Router();
+const userRoutes = require("./userRoutes");
+const breakfastRoutes = require("./breakfastRoute");
+const lunchRoutes = require("./breakfastRoute");
+const dinnerRoutes = require("./dinnerRoutes");
 
-// router.use("/travellers", travellerRoutes);
-// router.use("/locations", locationRoutes);
-// router.use("/trips", tripRoutes);
+router.use("/user", userRoutes);
+router.use("/breakfast", breakfastRoutes);
+router.use("/lunch", lunchRoutes);
+router.use("/dinner", dinnerRoutes);
 
-// module.exports = router;
+module.exports = router;
