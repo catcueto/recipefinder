@@ -1,24 +1,32 @@
 <section class="specificRecipe">
-  <div class="card-deck">
-  <div class="card" style="width: 18rem;">
-    <a href="/recipe/:id{{id}}"></a>
-    <img class="card-img-top" src="/images/{{file_name}}" alt="{{description}}" />
-    <div class="card-body">
-      <h4 class="card-title">{{name}}</h4>
-      <p class="card-text"> {{description}}
-    </div>
-    <div class='card-ingredients'>
-      <ol class="list-group list-group-flush">
-        <li class="list-group-item">{{ingredients}}</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ol>
-    </div>
-
-    <div class="card-body">
-      <h5>{{instructions}}</h5>
-    </div>
-
+  <div class="text-center">
+    <div class="card" style="width: 30rem;">
+      <a href="/recipe/:id{{id}}"></a>
+      <img class="card-img-top" src="/images/{{file_name}}" alt="{{description}}" />
+      <div class="card-body">
+        <h4 class="card-title">{{name}}</h4>
+        <p class="card-text description"> {{description}}
+      </div>
+      <div class='card-ingredients'>
+        <h4>Ingredients</h4>
+        <ol class="list-group list-group-flush">
+          <li class="list-group-item">{{ingredients}}</li>
+          <li class="list-group-item">{{ingredients}}</li>
+          <li class="list-group-item">{{ingredients}}</li>
+        </ol>
+      </div>
+      <div class="directions">
+        <h4>Directions</h4>
+        <ol class="list-group list-group-flush">
+          <li class="list-group-item">{{instructions}}</li>
+          <li class="list-group-item">{{instructions}}</li>
+          <li class="list-group-item">{{instructions}}</li>
+          <li class="list-group-item">
+        </ol>
+      </div>
+      <div class="card-body">
+        <a href="#" class="card-link">Leave your Review :)</a>
+      </div>
 </section>
 
 <div class="card-deck">
