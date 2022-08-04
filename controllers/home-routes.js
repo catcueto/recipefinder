@@ -74,28 +74,6 @@ router.get("/recipe/:id", async (req, res) => {
   }
 });
 
-router.get("/recipe/breakfast", async (req, res) => {
-  try {
-    // GET all recipes for homepage
-    const dbRecipeData = await Recipe.findAll({
-      where: {
-        mealtime: "breakfast",
-      },
-    });
-
-    // Serializing data so template can read it
-    const recipes = dbRecipeData.map((recipe) => recipes.get({ plain: true }));
-
-    // Passsing serialized data into login requirement into template
-    res.render("homepage", {
-      recipes,
-      // loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(er);
-  }
-});
 
 // Middleware to prevent non logged in users from viewing the homepage
 router.get("/user", loginAuth, async (req, res) => {
@@ -121,7 +99,7 @@ router.get("/user", loginAuth, async (req, res) => {
 router.get("/addrecipe", async (req, res) => {
   try {
     if (req.session.logged_in) {
-      //render Addrecipe page
+    //render Addrecipe page
       res.render("Addrecipe");
     } else {
       res.redirect("/login");
