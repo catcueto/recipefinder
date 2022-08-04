@@ -97,18 +97,23 @@ router.get("/recipe/:id", async (req, res) => {
 });
 
 // GET page for breakfast recipes page
+router.get("/", async (req, res) => {
+	try {
 let breakfastRecipes = await Recipe.findAll({
   where: {
     mealtime: "breakfast",
   },
   limit: 3,
   order: [["time_created", "DESC"]],
+}
 });
 
 // Serializing data so template can read it
 breakfastRecipes = breakfastRecipes.map((recipe) =>
   recipe.get({ plain: true })
 );
+
+
 
 // Middleware to prevent non logged in users from viewing the homepage
 router.get("/users", loginAuth, async (req, res) => {
