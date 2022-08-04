@@ -31,6 +31,7 @@ const response = await fetch(`/api/dish`, {
     body: JSON.stringify({
       name,
       ingredients,
+      instructions,
       mealtime,
       filename,
     }),
