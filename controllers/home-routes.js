@@ -58,6 +58,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// TODO: Get recipe to show recipe-details
 router.get("/recipe/:id", async (req, res) => {
   try {
     // GET recipe to show recipe details
