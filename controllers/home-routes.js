@@ -32,12 +32,14 @@ router.get("/", async (req, res) => {
 		});
 
 		let featuredRecipe = await Recipe.findAll({
-			include: [{ model: Recipe }],
+			// include: [{ model: Recipe }],
 			attributes: {
 				include: [
 					[
 						sequelize.literal(
-							"(SELECT column_name FROM table_name ORDER BY RAND() LIMIT 1')"
+
+							`(SELECT id FROM recipe ORDER BY RAND() LIMIT 1)`
+
 						),
 						"featured",
 					],
@@ -137,7 +139,7 @@ router.get("/users", loginAuth, async (req, res) => {
 });
 
 // This route takes users to the Addrecipe page
-<<<<<<< HEAD
+
 router.get("/addrecipe", async (req, res) => {
   try {
     // if (req.session.logged_in) {
@@ -149,19 +151,7 @@ router.get("/addrecipe", async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-=======
-router.get("/Addrecipe", async (req, res) => {
-	try {
-		// if (req.session.logged_in) {
-		//render Addrecipe page
-		res.render("Addrecipe");
-		// } else {
-		//   res.redirect("/login");
-		// }
-	} catch (err) {
-		res.status(500).json(err);
-	}
->>>>>>> b41f4844473d2eb34702f64ea448b1630c53ecbb
+
 });
 
 // This route will take the users to login page
