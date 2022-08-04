@@ -1,7 +1,23 @@
+body {
+    width: 80%;
+    margin: 2rem auto;
+}
+
 h1 {
     font-size: 2rem;
 }
 
 a {
     margin: 1rem;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    min-width: 25%;
+}
+
+.card {
+    flex: 1 2 0;
+    flex-wrap: wrap;
 }
