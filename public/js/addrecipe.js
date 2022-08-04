@@ -24,4 +24,24 @@ deleteIngredientBox => {
     this.closest('.ingredient').remove
 }
 
+// Post request
+const response = await fetch(`/api/dish`, {
+    method: 'POST',
+    body: JSON.stringify({
+      name,
+      ingredients,
+      gmealtime,
+      filename,
+    }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to add dish');
+  }
+
 
