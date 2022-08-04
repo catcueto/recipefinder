@@ -33,3 +33,7 @@ sequelize.sync({ force: false }).then(() => {
         console.log('Now listening on PORT # http://localhost:3001')
     );
 });
+
+// app.post('/', (req, res) {
+//     response.send(request.body)
+// })
