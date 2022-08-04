@@ -7,7 +7,7 @@ router.get("/:mealtime", async (req, res) => {
 		// Grabs pagetitle from the parameters
 		const pageTitle = req.params.mealtime; // todo: capitalize
 
-        // Grabs the recipe identified by their meal time
+		// Grabs the recipe identified by their meal time
 		let mealtimeRecipes = await Recipe.findAll({
 			where: {
 				mealtime: req.params.mealtime,
