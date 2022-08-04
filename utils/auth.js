@@ -7,4 +7,4 @@ const loginAuth = (req, res, next) => {
   }
 };
 
-module.exports = withAuth;
+module.exports = loginAuth;
