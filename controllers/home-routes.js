@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Recipe, User} = require("../models/");
+const { Recipe, User} = require("../models");
 const loginAuth = require("../utils/auth");
 
 // HOMEPAGE ROUTES
@@ -114,21 +114,6 @@ router.get("/user", loginAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
-
-// This route takes users to the Addrecipe page
-router.get("/Addrecipe", async (req, res) => {
-	try {
-		// if (req.session.logged_in) {
-		//render Addrecipe page
-		res.render("Addrecipe");
-		// } else {
-		//   res.redirect("/login");
-		// }
-	} catch (err) {
-		res.status(500).json(err);
-	}
 });
 
 // This route will take the users to login page

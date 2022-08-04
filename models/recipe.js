@@ -16,7 +16,7 @@ Recipe.init(
       allowNull: false,
     },
     description: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     mealtime: {
@@ -28,7 +28,7 @@ Recipe.init(
       allowNull: false,
     },
     instructions: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
 
