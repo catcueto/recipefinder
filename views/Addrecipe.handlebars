@@ -1,57 +1,70 @@
-<section class="addRecipe ">
-    <form class="new-recipe-form">
-        {{!-- <div id="name">
+<section class="addRecipe">
+	<form class="new-recipe-form">
+		{{! <div id="name">
             <label for="yourName">Your Name</label><br>
             <textarea name="yourname" placeholder="Enter your name">
             </textarea>
             <br>
-        </div> --}}
-        <div id="recipeName">
-            <label for="recipeName">What is the name of your recipe?</label><br>
-            <textarea id="name" name="recipeName" placeholder="Your recipe name here">
-                {{name}}
-            </textarea>
-        </div>
-        <div id="recipeDescription">
-            <label for="recipeDescription">What is the description of your recipe?</label><br>
-            <textarea id="description" name="recipeDescription" placeholder="Your recipe's description here">
-                {{description}}
-            </textarea>
-        </div>
-        <div class="ingredient">
-            <label for="ingredients">What are the ingredients? (amount, unit of measurement, then ingredient)</label><br>
-            <textarea id="ingredients" name="ingredients" placeholder="(amount, unit of measurement, ingredient)">
-                {{ingredients}}
-            </textarea>
-            <button class="deleteIngredient" onclick="deleteIngredientBox(event)">🗑</button><br>
-            
-        </div>
+        </div> }}
+		<div id="recipeName">
+			<label for="recipeName">What is the name of your recipe?</label><br
+			/>
+			<textarea
+				id="name"
+				name="recipeName"
+				placeholder="Your recipe name here"
+			>
+				{{name}}
+			</textarea>
+		</div>
+		<div id="recipeDescription">
+			<label for="recipeDescription">What is the description of your
+				recipe?</label><br />
+			<textarea
+				id="description"
+				name="recipeDescription"
+				placeholder="Your recipe's description here"
+			>
+				{{description}}
+			</textarea>
+		</div>
+		<div class="ingredient">
+			<label>What are the ingredients? (amount, unit of
+				measurement, then ingredient name)</label><br/>
+            <ol id="ingredient-list"></ol>
+            <button id="addNewIngredient" onclick="addIngredientBox(event)">Click to add ingredient</button>
+		</div>
 
-        <button id="addNewIngredient" onclick="addIngredientBox(event)">+</button>
+		
+		<div class="instructions">
+			<label for="instructions">Instructions</label><br />
+			<textarea
+				id="instructions"
+				class="insText"
+			>{{instructions}}</textarea>
 
-        <div class="instructions">
-            <label for="instructions">Instructions</label><br>
-            <textarea id="instructions" class="insText">{{instructions}}</textarea>
-            
-        </div>
-        <div class="meal">
-            <p>What meal is his recipe for?</p>
-            
-            <label><input type="radio" name="meal" value="Breakfast"> Breakfast</label><br>
-            <label><input type="radio" name="meal" value="Lunch"> Lunch</label><br>
-            <label><input type="radio" name="meal" value="Dinner"> Dinner</label>
-        </div>
-        <div class="addFile">
-            <label for="myfile">Select a file:</label>
-            <br>
-            <input type="file" id="myfile" name="myfile">
-        </div>
+		</div>
+		<div class="meal">
+			<p>What meal is his recipe for?</p>
 
-        <div class="buttons">
-            <input type="submit" value="Submit">
-            <button class="clear">Clear Recipe</button>
-        </div>
-    </form> 
+			<label><input type="radio" name="meal" value="Breakfast" />
+				Breakfast</label><br />
+			<label><input type="radio" name="meal" value="Lunch" />
+				Lunch</label><br />
+			<label><input type="radio" name="meal" value="Dinner" />
+				Dinner</label>
+		</div>
+		<div class="addFile">
+			<label for="myfile">Select a file:</label>
+			<br />
+			<input type="file" id="myfile" name="myfile" />
+		</div>
+
+		<div class="buttons">
+			<input type="submit" value="Submit" onclick="newRecipeHandler(event)"/>
+			<button class="clear">Clear Recipe</button>
+		</div>
+	</form>
 </section>
 
 <script src="/js/addrecipe.js"></script>

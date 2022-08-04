@@ -1,4 +1,12 @@
 const addBtn = document.getElementById("addNewIngredient");
+
+
+// ingredients
+// - amount
+// - unit of measurement
+// - ingredient name
+
+
 // const mealtime = document.querySelector('meal');
 
 //  look up input file for image
@@ -6,27 +14,40 @@ const addBtn = document.getElementById("addNewIngredient");
 // TODO: Add description after name of recipe in handleba
 
 // Add a new ingredient box and delete button.
-function addIngredientBox() {
-	const newDiv = document.createElement("div");
-	newDiv.className = "ingredient";
+function addIngredientBox(event) {
+	event.preventDefault();
 
-	const inputElem = document.createElement("input");
-	inputElem.type = "text";
-	newDiv.appendChild(inputElem);
+	// Grabs the ol element
+	var ingredientList = document.querySelector("#ingredient-list");
 
-	const btnElem = document.createElement("button");
-	btnElem.type = "button";
-	btnElem.textContent = "🗑";
-	btnElem.addEventListener("click", removeUrlBox);
-	newDiv.appendChild(btnElem);
+	// Creates the input and sets the placeholder
+	var newEmptyIngredientInput = document.createElement("input");
+	newEmptyIngredientInput.placeholder = "(amount, unit of measurement, ingredient name)";
 
-	const element = document.getElementById("TextAreaBtn");
-	element.appendChild(newDiv);
+	// Creates the trash button
+	var newTrashButton = document.createElement("button");
+	newTrashButton.textContent = "🗑";
+	newTrashButton.type = "button";
+	newTrashButton.onclick = deleteIngredientBox;
+
+	// Creates the list element and appends input and trash button
+	var listElement =  document.createElement("li");
+	listElement.appendChild(newEmptyIngredientInput);
+	listElement.appendChild(newTrashButton);
+
+	// Adds list element to ingredient list
+	ingredientList.appendChild(listElement);
 }
 
 // Deletes ingredient box and button.
-function deleteIngredientBox() {
-	this.closest(".ingredient").remove;
+function deleteIngredientBox(event) {
+	event.preventDefault();
+
+	// Grab parent element of the button that was clicked
+	var listElement = event.target.parentElement;
+
+	// Then removes the element from the page
+	listElement.remove();
 }
 
 // Post request
@@ -35,9 +56,10 @@ async function newRecipeHandler(event) {
 
 	const name = document.querySelector("#name").value.trim();
 	const description = document.querySelector("#description").value.trim();
-	const ingredients = document.querySelector("#ingredients").value.trim();
+	// const ingredients = document.querySelector("#ingredients").value.trim();
+	const ingredients = "";
 	const instructions = document.querySelector("#instructions").value.trim();
-	const mealtime = document.querySelector("input[name=meal]:checked").value.trim();
+	const mealtime = document.querySelector("input[name=meal]:checked").value;
 	const file_name = "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg";
 	const user_id = 1;
 	const time_created = new Date();
@@ -65,9 +87,9 @@ async function newRecipeHandler(event) {
 	}
 }
 
-document
-	.querySelector(".new-recipe-form")
-	.addEventListener("submit", newRecipeHandler);
+// document
+// 	.querySelector(".new-recipe-form")
+// 	.addEventListener("submit", newRecipeHandler);
 
 // const response = await fetch(`/api/dish`, {
 //     method: 'POST',

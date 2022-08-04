@@ -1,13 +1,12 @@
-// module.exports = {
-// 	// loop: (start, end) => {
-// 	// 	// Loops the latest 3 recipes
-// 	// 	var latestRecipe = [];
-// 	// 	for (i = start; i < end; i++) {
-// 	// 		var data = recipeData.length - i;
-// 	// 		latestRecipe.push(data);
-// 	// 	}
-// 	// 	return latestRecipe;
-// 	// },
+module.exports = {
+	loop: (array, options) => {
+		for (i = 0; i < array.length; i++) {
+			options.fn(this);
+		}
+		// return latestRecipe;
+	},
+};
+
 //     ifEquals: (string1, string2, options) => {
 //         if (string1 == string2) {
 //             console.log("this", this);
@@ -15,4 +14,3 @@
 //             return options.fn(this); 
 //         }
 //     }
-// };
