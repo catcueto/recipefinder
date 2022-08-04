@@ -98,12 +98,12 @@ router.get("/user", loginAuth, async (req, res) => {
 // This route takes users to the addyourown page
 router.get("/addrecipe", async (req, res) => {
   try {
-    if (req.session.logged_in) {
-    //render Addrecipe page
+    // if (req.session.logged_in) {
+      //render Addrecipe page
       res.render("Addrecipe");
-    } else {
-      res.redirect("/login");
-    }
+    // } else {
+    //   res.redirect("/login");
+    // }
   } catch (err) {
     res.status(500).json(err);
   }
