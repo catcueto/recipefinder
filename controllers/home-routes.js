@@ -42,7 +42,7 @@ router.get("/", async (req, res) => {
       recipe.get({ plain: true })
     );
 
-    // Passsing serialized data into login requirement into template
+    // Passing serialized data into template
     res.render("homepage", {
       recentBreakfastRecipes,
       recentLunchRecipes,

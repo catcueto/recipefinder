@@ -4,9 +4,9 @@
         {{!-- Finding popular recipe --}}
     </article>
 </aside>
-<section class="col-12 col-md-10 col-xl-9 m-3">
+<section class="recent-cards col-12 col-md-10 col-xl-9 m-3">
     <h2>Recent Breakfast Recipes</h2>
-    <section class="breakfast-recipe col-12 col-md-10 col-lg-9 d-flex flex-row flex-wrap">
+    <section class="col-12 col-md-10 col-lg-9 d-flex flex-row flex-wrap">
         {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
         {{#each recentBreakfastRecipes as |recipe|}}
             {{> recipe-details}}

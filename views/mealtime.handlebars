@@ -1,0 +1,9 @@
+<section class="breakfast-cards col-12 col-md-10 col-xl-9 m-3 full-width">
+    <h2>{{pageTitle}}</h2>
+    <section class="breakfast-recipe col-12 col-md-10 col-lg-9 d-flex flex-row flex-wrap full-width">
+        {{!-- For each recipe, the 'recipe-details' partial is used to render the recipe data --}}
+        {{#each mealtimeRecipes as |recipe|}}
+            {{> recipe-details}}
+        {{/each}}
+    </section>
+</section>
