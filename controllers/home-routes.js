@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Recipe, User, AllMeals } = require("../models/");
+const { Recipe, User} = require("../models/");
 const loginAuth = require("../utils/auth");
 
+// HOMEPAGE ROUTES
 router.get("/", async (req, res) => {
 	try {
 		// GET recent breakfast recipes for homepage
@@ -96,23 +97,25 @@ router.get("/recipe/:id", async (req, res) => {
 
 // Middleware to prevent non logged in users from viewing the homepage
 router.get("/user", loginAuth, async (req, res) => {
-	try {
-		const userData = await User.findAll({
-			attributes: { exclude: ["password"] },
-			order: [["name", "ASC"]],
-		});
+  try {
+    const userData = await User.findbyPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
+      include: [{ model: Recipe }],
+      order: [["name", "ASC"]],
+    });
 
-		const users = userData.map((project) => project.get({ plain: true }));
-		//render homepage and display user info
-		res.render("homepage", {
-			users,
-			// Check if user is logged in or not
-			// logged_in: req.session.logged_in,
-		});
-	} catch (err) {
-		res.status(500).json(err);
-	}
+    const user = userData.get({ plain: true });
+    //render homepage and display user info
+    res.render("users", {
+      ...user,
+      // Check if user is logged in or not
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
 
 // This route takes users to the Addrecipe page
 router.get("/Addrecipe", async (req, res) => {
@@ -132,7 +135,7 @@ router.get("/Addrecipe", async (req, res) => {
 router.get("/login", (req, res) => {
 	// If a session exists, redirect the user to homepage
 	if (req.session.logged_in) {
-		res.redirect("/");
+		res.redirect("/users");
 		return;
 	}
 
