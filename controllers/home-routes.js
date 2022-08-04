@@ -37,7 +37,9 @@ router.get("/", async (req, res) => {
 				include: [
 					[
 						sequelize.literal(
+
 							`(SELECT id FROM recipe ORDER BY RAND() LIMIT 1)`
+
 						),
 						"featured",
 					],
@@ -76,6 +78,7 @@ router.get("/", async (req, res) => {
 	}
 });
 
+// TODO: Get route to show recipe-details
 router.get("/recipe/:id", async (req, res) => {
 	try {
 		// GET recipe to show recipe details
@@ -95,8 +98,27 @@ router.get("/recipe/:id", async (req, res) => {
 	}
 });
 
+// GET page for breakfast recipes page
+router.get("/", async (req, res) => {
+	try {
+let breakfastRecipes = await Recipe.findAll({
+  where: {
+    mealtime: "breakfast",
+  },
+  limit: 3,
+  order: [["time_created", "DESC"]],
+}
+});
+
+// Serializing data so template can read it
+breakfastRecipes = breakfastRecipes.map((recipe) =>
+  recipe.get({ plain: true })
+);
+
+
+
 // Middleware to prevent non logged in users from viewing the homepage
-router.get("/user", loginAuth, async (req, res) => {
+router.get("/users", loginAuth, async (req, res) => {
   try {
     const userData = await User.findbyPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
@@ -116,19 +138,20 @@ router.get("/user", loginAuth, async (req, res) => {
   }
 });
 
-
 // This route takes users to the Addrecipe page
-router.get("/Addrecipe", async (req, res) => {
-	try {
-		// if (req.session.logged_in) {
-		//render Addrecipe page
-		res.render("Addrecipe");
-		// } else {
-		//   res.redirect("/login");
-		// }
-	} catch (err) {
-		res.status(500).json(err);
-	}
+
+router.get("/addrecipe", async (req, res) => {
+  try {
+    // if (req.session.logged_in) {
+    //render Addrecipe page
+    res.render("Addrecipe");
+    // } else {
+    //   res.redirect("/login");
+    // }
+  } catch (err) {
+    res.status(500).json(err);
+  }
+
 });
 
 // This route will take the users to login page
