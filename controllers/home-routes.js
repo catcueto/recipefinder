@@ -58,7 +58,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// TODO: Get recipe to show recipe-details
+// TODO: Get route to show recipe-details
 router.get("/recipe/:id", async (req, res) => {
   try {
     // GET recipe to show recipe details
@@ -78,8 +78,22 @@ router.get("/recipe/:id", async (req, res) => {
   }
 });
 
+// GET page for breakfast recipes page
+let breakfastRecipes = await Recipe.findAll({
+  where: {
+    mealtime: "breakfast",
+  },
+  limit: 3,
+  order: [["time_created", "DESC"]],
+});
+
+// Serializing data so template can read it
+breakfastRecipes = breakfastRecipes.map((recipe) =>
+  recipe.get({ plain: true })
+);
+
 // Middleware to prevent non logged in users from viewing the homepage
-router.get("/user", loginAuth, async (req, res) => {
+router.get("/users", loginAuth, async (req, res) => {
   try {
     const userData = await User.findbyPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
