@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { Recipe, User} = require("../models/");
+const { Recipe, User} = require("../models");
 const loginAuth = require("../utils/auth");
 
 // HOMEPAGE ROUTES
@@ -15,6 +15,7 @@ router.get("/", async (req, res) => {
 			order: [["time_created", "DESC"]],
 		});
 
+		// GET recent lunch recipes for homepage
 		let recentLunchRecipes = await Recipe.findAll({
 			where: {
 				mealtime: "lunch",
@@ -23,6 +24,7 @@ router.get("/", async (req, res) => {
 			order: [["time_created", "DESC"]],
 		});
 
+		// GET recent dinner recipes for homepage
 		let recentDinnerRecipes = await Recipe.findAll({
 			where: {
 				mealtime: "dinner",
@@ -78,7 +80,6 @@ router.get("/", async (req, res) => {
 	}
 });
 
-// TODO: Get route to show recipe-details
 router.get("/recipe/:id", async (req, res) => {
 	try {
 		// GET recipe to show recipe details
@@ -135,22 +136,6 @@ router.get("/users", loginAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
-// This route takes users to the Addrecipe page
-
-router.get("/addrecipe", async (req, res) => {
-  try {
-    // if (req.session.logged_in) {
-    //render Addrecipe page
-    res.render("Addrecipe");
-    // } else {
-    //   res.redirect("/login");
-    // }
-  } catch (err) {
-    res.status(500).json(err);
-  }
-
 });
 
 // This route will take the users to login page
