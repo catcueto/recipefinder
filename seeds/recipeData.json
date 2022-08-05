@@ -1,79 +1,79 @@
 [
-  {
-    "id": 1,
-    "name": "Banana Baked Oatmeal",
-    "description": "This is the ideal healthy breakfast recipe, easy and extremely yummy",
-    "mealtime": "breakfast",
-    "ingredients": "[\"banana\", \"oatmeal\"]",
-    "instructions": "Bake in oven",
-    "file_name": "banana-french-toast.jpg",
-    "user_id": 1,
-    "time_created": "8/3/22"
-  },
-  {
-    "id": 2,
-    "name": "Avocado Toast",
-    "description": "avocado with toast",
-    "mealtime": "breakfast",
-    "ingredients": "[\"avocado\", \"toast\"]",
-    "instructions": "Bake in oven",
-    "file_name": "avocado-toast.jpg",
-    "user_id": 1,
-    "time_created": "8/4/22"
-  },
-  {
-    "id": 3,
-    "name": "Grilled Chicken",
-    "description": "Grilled to the best",
-    "mealtime": "breakfast",
-    "ingredients": "[\"chicken\", \"onion\", \"garlic\"]",
-    "instructions": "1. Grill \n 2. Enjoy",
-    "file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
-    "user_id": 1,
-    "time_created": "8/5/22"
-  },
-  {
-    "id": 4,
-    "name": "Buttersquash soup",
-    "description": "Grilled to the best",
-    "mealtime": "lunch",
-    "ingredients": "[\"Buttersquash\", \"water\", \"broth\"]",
-    "instructions": "mix everything and boil",
-    "file_name": "buttersquash-soup.jpg",
-    "user_id": 1,
-    "time_created": "8/3/22"
-  },
-  {
-    "id": 5,
-    "name": "Carbonara",
-    "description": "pasta",
-    "mealtime": "lunch",
-    "ingredients": "[\"pasta\", \"egg\", \"cheese\", \"pork\", \"pepper\"]",
-    "instructions": "just do it :D",
-    "file_name": "carbonara.jpg",
-    "user_id": 1,
-    "time_created": "8/4/22"
-  },
-  {
-    "id": 6,
-    "name": "Chia Pudding",
-    "description": "nice dessert",
-    "mealtime": "dinner",
-    "ingredients": "[\"chia seeds\", \"milk\"]",
-    "instructions": "magic",
-    "file_name": "chia-pudding.jpg",
-    "user_id": 1,
-    "time_created": "8/5/22"
-  },
-  {
-    "id": 7,
-    "name": "Paella",
-    "description": "Spain national dish",
-    "mealtime": "dinner",
-    "ingredients": "[\"rice\"",
-    "instructions": "Make rice",
-    "file_name": "paella.jpg",
-    "user_id": 1,
-    "time_created": "8/5/22"
-  }
+	{
+		"id": 1,
+		"name": "Banana Baked Oatmeal",
+		"description": "This is the ideal healthy breakfast recipe, easy and extremely yummy",
+		"mealtime": "breakfast",
+		"ingredients": "[\"banana\", \"oatmeal\"]",
+		"instructions": "Bake in oven",
+		"file_name": "banana-french-toast.jpg",
+		"user_id": 1,
+		"time_created": "8/3/22"
+	},
+	{
+		"id": 2,
+		"name": "Avocado Toast",
+		"description": "avocado with toast",
+		"mealtime": "breakfast",
+		"ingredients": "[\"avocado\", \"toast\"]",
+		"instructions": "Bake in oven",
+		"file_name": "avocado-toast.jpg",
+		"user_id": 1,
+		"time_created": "8/4/22"
+	},
+	{
+		"id": 3,
+		"name": "Grilled Chicken",
+		"description": "Grilled to the best",
+		"mealtime": "breakfast",
+		"ingredients": "[\"chicken\", \"onion\", \"garlic\"]",
+		"instructions": "1. Grill \n 2. Enjoy",
+		"file_name": "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg",
+		"user_id": 1,
+		"time_created": "8/5/22"
+	},
+	{
+		"id": 4,
+		"name": "Buttersquash soup",
+		"description": "Grilled to the best",
+		"mealtime": "lunch",
+		"ingredients": "[\"Buttersquash\", \"water\", \"broth\"]",
+		"instructions": "mix everything and boil",
+		"file_name": "buttersquash-soup.jpg",
+		"user_id": 1,
+		"time_created": "8/3/22"
+	},
+	{
+		"id": 5,
+		"name": "Carbonara",
+		"description": "pasta",
+		"mealtime": "lunch",
+		"ingredients": "[\"pasta\", \"egg\", \"cheese\", \"pork\", \"pepper\"]",
+		"instructions": "just do it :D",
+		"file_name": "carbonara.jpg",
+		"user_id": 1,
+		"time_created": "8/4/22"
+	},
+	{
+		"id": 6,
+		"name": "Chia Pudding",
+		"description": "nice dessert",
+		"mealtime": "dinner",
+		"ingredients": "[\"chia seeds\", \"milk\"]",
+		"instructions": "magic",
+		"file_name": "chia-pudding.jpg",
+		"user_id": 1,
+		"time_created": "8/5/22"
+	},
+	{
+		"id": 7,
+		"name": "Paella",
+		"description": "Spain national dish",
+		"mealtime": "dinner",
+		"ingredients": "[\"rice\"",
+		"instructions": "Make rice",
+		"file_name": "paella.jpg",
+		"user_id": 1,
+		"time_created": "8/5/22"
+	}
 ]
