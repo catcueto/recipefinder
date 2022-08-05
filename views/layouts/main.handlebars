@@ -35,15 +35,15 @@
 				<section class="d-flex flex-row justify-content-around">
 					<a href="#">About</a>
 					<a href="#">Contact</a>
-					<a href="#">Login</a>
+					{{!-- <a href="#">Login</a> --}}
 
           <!-- Conditionally render login or logout ahrefs -->
           {{#if logged_in}}
-            <a href="/profile">profile</a>
+            <a href="/profile">Profile</a>
             |
-            <button class="no-button" id="logout">logout</button>
+            <button class="no-button" id="logout">Logout</button>
           {{else}}
-            <a href="/login">login</a>
+            <a href="/login">Login</a>
           {{/if}}
 				</section>
 			</nav>
