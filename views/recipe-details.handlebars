@@ -1,26 +1,22 @@
 <section class="specificRecipe">
   <div class="text-center">
     <div class="card" style="width: 30rem;">
-      <a href="/recipe/:id{{id}}"></a>
-      <img class="card-img-top" src="/images/{{file_name}}" alt="{{description}}" />
+      <a href="/recipe/:id{{recipe.id}}"></a>
+      <img class="card-img-top" src="/images/{{recipe.file_name}}" alt="{{recipe.description}}" />
       <div class="card-body">
-        <h4 class="card-title">{{name}}</h4>
-        <p class="card-text description"> {{description}}
+        <h4 class="card-title">{{recipe.name}}</h4>
+        <p class="card-text description"> {{recipe.description}}
       </div>
       <div class='card-ingredients'>
         <h4>Ingredients</h4>
         <ol class="list-group list-group-flush">
-          <li class="list-group-item">{{ingredients}}</li>
-          <li class="list-group-item">{{ingredients}}</li>
-          <li class="list-group-item">{{ingredients}}</li>
+          <li class="list-group-item">{{recipe.ingredients}}</li>
         </ol>
       </div>
       <div class="directions">
         <h4>Directions</h4>
         <ol class="list-group list-group-flush">
-          <li class="list-group-item">{{instructions}}</li>
-          <li class="list-group-item">{{instructions}}</li>
-          <li class="list-group-item">{{instructions}}</li>
+          <li class="list-group-item">{{recipe.instructions}}</li>
           <li class="list-group-item">
         </ol>
       </div>
@@ -28,7 +24,7 @@
         <a href="#" class="card-link">Leave your Review :)</a>
       </div>
 </section>
-
+{{!-- 
 <div class="card-deck">
   <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="../public/images/avocado-toast.jpg" alt="Avocado toast" />
@@ -72,7 +68,7 @@
       <a href="#" class="card-link">Leave your Review :)</a>
     </div>
 
-    <img class="card-img-top" src="../public/images/avocado-toast.jpg" alt="Avocado toast" />
+    <img class="card-img-top" src="{{recipe.file_name}}" alt="Avocado toast" />
     <div class="card-body">
       <h3 class="card-title">Avocado Toast with Eggie</h3>
       <p class="card-text">
@@ -154,4 +150,4 @@
       <a href="#" class="card-link">Leave your Review :)</a>
     </div>
   </div>
-</div>
+</div> --}}
