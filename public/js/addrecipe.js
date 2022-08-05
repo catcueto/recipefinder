@@ -58,10 +58,18 @@ async function newRecipeHandler(event) {
 	const description = document.querySelector("#description").value.trim();
 	const ingredients = getIngredients();
 	const instructions = document.querySelector("#instructions").value.trim();
-	const mealtime = document.querySelector("input[name=meal]:checked").value;
-	const file_name = "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg";
+	let mealtime = document.querySelector("input[name=meal]:checked");
+	
+	if (mealtime) {
+		mealtime = mealtime.value;
+	}
+
+	const file_name = document.querySelector("#myfile").files[0].name;
 	const user_id = 1;
 	const time_created = new Date();
+
+
+	console.log(document.querySelector("#myfile").files[0]);
 
 	const response = await fetch(`/api/addrecipe`, {
 		method: "POST",
@@ -81,6 +89,6 @@ async function newRecipeHandler(event) {
 	});
 
 	if (response.ok) {
-		document.location.replace("/"); // TODO: Navigate to recipe details page
+		document.location.replace("/");
 	}
 }
