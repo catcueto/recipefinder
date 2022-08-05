@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
       req.session.user_id = userData.id;
       // req.session.username = userData.username;
       req.session.logged_in = true;
-
+      S;
       res.json({ user: userData, message: "You have succesfully logged in!" });
     });
   } catch (err) {

@@ -101,3 +101,16 @@ hr {
 .textBtn {
   color: #fffcf8;
 }
+
+/* Add new recipe form  page */
+input[type="text"],
+select {
+  width: 75%;
+  height: 75%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
