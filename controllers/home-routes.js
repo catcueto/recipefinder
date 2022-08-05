@@ -149,4 +149,17 @@ router.get("/login", (req, res) => {
 	res.render("login");
 });
 
+// GET route to take you back to homepage when Title is clicked
+router.get("/homepage", async (req, res) => {
+	try {
+	  res.render("homepage");
+
+	} catch (err) {
+	  res.status(500).json(err);
+	}
+  });
+  
+
 module.exports = router;
+
+
