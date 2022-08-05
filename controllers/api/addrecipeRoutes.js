@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const Recipe = require("../../models/Recipe");
 
-
 // This route takes users to the addrecipe page
 router.get("/", (req, res) => {
 	try {
@@ -28,7 +27,6 @@ router.post("/", async (req, res) => {
 			file_name: req.body.file_name,
 			user_id: 1,
 			time_created: new Date(),
-			
 		});
 
 		res.status(200).json(newRecipe);
