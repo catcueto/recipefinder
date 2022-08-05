@@ -107,15 +107,14 @@ let breakfastRecipes = await Recipe.findAll({
   },
   limit: 3,
   order: [["time_created", "DESC"]],
-}
 });
-
 // Serializing data so template can read it
 breakfastRecipes = breakfastRecipes.map((recipe) =>
   recipe.get({ plain: true })
 );
-
-
+} catch (err) {
+    res.status(500).json(err);
+  }});
 
 // Middleware to prevent non logged in users from viewing the homepage
 router.get("/users", loginAuth, async (req, res) => {

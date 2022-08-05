@@ -75,3 +75,7 @@ img {
 .full-width {
     width: 100%;
 }
+
+hr {
+    border: solid black;
+  }
