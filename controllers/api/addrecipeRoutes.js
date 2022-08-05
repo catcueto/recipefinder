@@ -25,9 +25,6 @@ router.get("/", (req, res) => {
 // POST - lets user to post a new recipe
 router.post("/", async (req, res) => {
 	try {
-
-		console.log("meow");
-
 		const newRecipe = await Recipe.create({
 			// id
 			// id: generateUniqueId({

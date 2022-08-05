@@ -19,14 +19,10 @@
 				<h1>Recipe Finder</h1>
 				<div class="search-container">
 					<form action="/search">
-						<input
-							type="text"
-							placeholder="Search recipe"
-							name="search"
-						/>
-						<button class button type="submit">
-							<i class="fa fa-search"></i>🔍
-						</button>
+						<input type="text" placeholder="Search recipe" name="search" />
+            <button class button type="submit">
+              <i class="fa fa-search"></i>🔍
+            </button>
 					</form>
 				</div>
 			</section>
@@ -40,11 +36,29 @@
 					<a href="#">About</a>
 					<a href="#">Contact</a>
 					<a href="#">Login</a>
+
+          <!-- Conditionally render login or logout ahrefs -->
+          {{#if logged_in}}
+            <a href="/profile">profile</a>
+            |
+            <button class="no-button" id="logout">logout</button>
+          {{else}}
+            <a href="/login">login</a>
+          {{/if}}
 				</section>
 			</nav>
 		</header>
+    <hr class="b-solid black">
 		<main class="d-flex flex-column flex-md-row flex-lg-row">
             {{{body}}}
 		</main>
+    <footer>
+
+    </footer>
+
+    <!-- Renders script for logged in users only -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
 	</body>
 </html>
