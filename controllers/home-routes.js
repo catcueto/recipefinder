@@ -107,7 +107,6 @@ let breakfastRecipes = await Recipe.findAll({
   },
   limit: 3,
   order: [["time_created", "DESC"]],
-}
 });
 
 // Serializing data so template can read it
@@ -161,8 +160,7 @@ router.get("/login", (req, res) => {
 		res.redirect("/users");
 		return;
 	}
-
-	res.render("login");
+  res.render('login');
 });
 
 module.exports = router;
