@@ -1,18 +1,3 @@
-const addBtn = document.getElementById("addNewIngredient");
-
-
-// ingredients
-// - amount
-// - unit of measurement
-// - ingredient name
-
-
-// const mealtime = document.querySelector('meal');
-
-//  look up input file for image
-
-// TODO: Add description after name of recipe in handleba
-
 // Add a new ingredient box and delete button.
 function addIngredientBox(event) {
 	event.preventDefault();
@@ -50,20 +35,41 @@ function deleteIngredientBox(event) {
 	listElement.remove();
 }
 
+function getIngredients() {
+	const ingredientListContainer = document.querySelector("#ingredient-list");
+	const ingredientList = ingredientListContainer.children;
+
+	let ingredientArray = [];
+
+	for (let i = 0; i < ingredientList.length; i++) {
+		// grab ingredient input value
+		var ingredientValue = ingredientList[i].firstChild.value;
+		ingredientArray.push(ingredientValue);
+	}
+
+	return JSON.stringify(ingredientArray);
+}
+
 // Post request
 async function newRecipeHandler(event) {
 	event.preventDefault();
 
 	const name = document.querySelector("#name").value.trim();
 	const description = document.querySelector("#description").value.trim();
-	// const ingredients = document.querySelector("#ingredients").value.trim();
-	const ingredients = "";
+	const ingredients = getIngredients();
 	const instructions = document.querySelector("#instructions").value.trim();
-	const mealtime = document.querySelector("input[name=meal]:checked").value;
-	const file_name = "sam-moghadam-khamseh-VpOpy6QrDrs-unsplash.jpg";
+	let mealtime = document.querySelector("input[name=meal]:checked");
+	
+	if (mealtime) {
+		mealtime = mealtime.value;
+	}
+
+	const file_name = document.querySelector("#myfile").files[0].name;
 	const user_id = 1;
 	const time_created = new Date();
-	console.log(mealtime);
+
+
+	console.log(document.querySelector("#myfile").files[0]);
 
 	const response = await fetch(`/api/addrecipe`, {
 		method: "POST",
@@ -83,31 +89,6 @@ async function newRecipeHandler(event) {
 	});
 
 	if (response.ok) {
-		document.location.replace("/"); // TODO: Navigate to recipe details page
+		document.location.replace("/");
 	}
 }
-
-// document
-// 	.querySelector(".new-recipe-form")
-// 	.addEventListener("submit", newRecipeHandler);
-
-// const response = await fetch(`/api/dish`, {
-//     method: 'POST',
-//     body: JSON.stringify({
-//       name,
-// 	  description,
-//       ingredients,
-//       instructions,
-//       mealtime,
-//     //   filename,
-//     }),
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
-
-// if (response.ok) {
-// document.location.replace('/'); // TODO: Naviagte to recipe details page
-// } else {
-// alert('Failed to add dish');
-// }

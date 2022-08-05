@@ -1,11 +1,5 @@
 const router = require("express").Router();
 const Recipe = require("../../models/Recipe");
-const generateUniqueId = require("generate-unique-id");
-// router.post("/addrecipe", async (req, res) => {
-//   const recipeData = await recipe.create(req.body);
-//   return res.json(recipeData);
-// });
-
 
 
 // This route takes users to the addrecipe page
@@ -26,11 +20,6 @@ router.get("/", (req, res) => {
 router.post("/", async (req, res) => {
 	try {
 		const newRecipe = await Recipe.create({
-			// id
-			// id: generateUniqueId({
-			// 	length: 10
-			//   }),
-			// id: 10,
 			name: req.body.name,
 			description: req.body.description,
 			ingredients: req.body.ingredients,
@@ -42,24 +31,6 @@ router.post("/", async (req, res) => {
 			
 		});
 
-		// console.log(recipeData);
-
-
-		// const recipeData = await Recipe.create({
-		// 	// id
-		// 	// id: generateUniqueId({
-		// 	// 	length: 10
-		// 	//   }),
-		// 	id: 10,
-		// 	name: req.body.dish_name,
-		// 	ingredients: req.body.ingredients,
-		// 	instructions: req.body.instructions,
-		// 	mealtime: req.body.mealtime,
-		// 	file_name: req.body.file_name,
-		// 	user_id: req.body.user_id,
-		// 	time_created: new Date().toDateString(),
-			
-		// });
 		res.status(200).json(newRecipe);
 	} catch (err) {
 		console.log(err);
