@@ -42,26 +42,7 @@ router.post("/login", async (req, res) => {
 		// Verifying that entered password matches password stored in db
 		const validPassword = await userData.checkPassword(req.body.password);
 
-<<<<<<< HEAD
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: "Incorrect username or pasword, please try again." });
-      return;
-    }
-    // Creating session variables
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      // req.session.username = userData.username;
-      req.session.logged_in = true;
-      S;
-      res.json({ user: userData, message: "You have succesfully logged in!" });
-    });
-  } catch (err) {
-    res.status(400).json(err);
-  }
-=======
-		if (!validPassword) {
+if (!validPassword) {
 			res.status(400).json({
 				message: "Incorrect username or pasword, please try again.",
 			});
@@ -81,7 +62,6 @@ router.post("/login", async (req, res) => {
 	} catch (err) {
 		res.status(400).json(err);
 	}
->>>>>>> 535e8e84d292a50d942d393d0e9a93e848289401
 });
 
 // This route will log users out
