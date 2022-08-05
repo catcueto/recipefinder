@@ -7,26 +7,26 @@
         {{/each}}
     </article>
 </aside>
-<section class="recent-cards col-12 col-md-8 col-lg-9 m-3">
+<section class="col-12 col-md-8 col-lg-9 m-3">
     <h2>Recent Breakfast Recipes</h2>
-    <section class="col-12 col-md-8 col-lg-9 d-flex flex-lg-row flex-wrap">
-        {{!-- For each breakfast recipe, the 'recipe-details' partial is used to render the gallery data --}}
+    <section class="recent-cards d-flex flex-row flex-wrap full-width">
+        {{!-- For each breakfast recipe, the 'recipe-card' partial is used to render the gallery data --}}
         {{#each recentBreakfastRecipes as |recipe|}}
-            {{> recipe-details}}
+            {{> recipe-card}}
         {{/each}}
     </section>
-    {{!-- For each lunch recipe, the 'recipe-details' partial is used to render the gallery data --}}
+    {{!-- For each lunch recipe, the 'recipe-card' partial is used to render the gallery data --}}
     <h2>Recent Lunch Recipes</h2>
-    <section class="col-12 col-md-8 col-lg-9 d-flex flex-lg-col flex-md-row flex-lg-row flex-wrap">
+    <section class="recent-cards d-flex flex-row flex-wrap full-width">
         {{#each recentLunchRecipes as |recipe|}}
-            {{> recipe-details}}
+            {{> recipe-card}}
         {{/each}}
     </section>
-    {{!-- For each dinner recipe, the 'recipe-details' partial is used to render the gallery data --}}
+    {{!-- For each dinner recipe, the 'recipe-card' partial is used to render the gallery data --}}
     <h2>Recent Dinner Recipes</h2>
-    <section class="col-12 col-md-8 col-lg-9 d-flex flex-row flex-wrap">
+    <section class="recent-cards d-flex flex-row flex-wrap full-width">
         {{#each recentDinnerRecipes as |recipe|}}
-            {{> recipe-details}}
+            {{> recipe-card}}
         {{/each}}
     </section>
 </section>
