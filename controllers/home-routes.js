@@ -33,18 +33,10 @@ router.get("/", async (req, res) => {
       order: [["time_created", "DESC"]],
     });
 
+    // GET featured recipe for homepage
     let featuredRecipe = await Recipe.findAll({
-      // include: [{ model: Recipe }],
-      attributes: {
-        include: [
-          [
-            sequelize.literal(
-              `(SELECT id FROM recipe ORDER BY RAND() LIMIT 1)`
-            ),
-            "featured",
-          ],
-        ],
-      },
+      order: sequelize.random(),
+      limit: 1,
     });
 
     // Serializing data so template can read it
