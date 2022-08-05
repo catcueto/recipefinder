@@ -1,4 +1,4 @@
-<section class="addRecipe">
+<section class="addRecipe col-12 col-md-8 col-lg-9 d-flex flex-lg-col flex-wrap justify-content-center">
   <form method="POST" action="/">
     {{! <div id="name">
             <label for="yourName">Your Name</label><br>
@@ -6,18 +6,20 @@
             </textarea>
             <br>
         </div> }}
-    <div id="recipeName">
+    <div id="recipeName" class="">
       <label for="recipeName">What is the name of your recipe?</label><br />
-      <textarea name="recipeName" placeholder="Your recipe name here">
+      <textarea name="recipeName" placeholder="Your recipe name here" class="mt-1">
         {{name}}
       </textarea>
     </div>
-    <div class="ingredient">
+
+    <div class="ingredient mt-3">
       <label for="ingredients">What are the ingredients? (amount, unit of
         measurement, then ingredient)</label><br />
       <textarea
         name="ingredients"
         placeholder="(amount, unit of measurement, ingredient)"
+        class="mt-1"
       >
         {{ingredients}}
       </textarea>
@@ -30,28 +32,30 @@
 
     <button id="addNewIngredient" onclick="addIngredientBox(event)">+</button>
 
-    <div class="instructions">
-      <label for="instructions">Instructions</label><br />
-      <textarea class="insText">{{instructions}}</textarea>
+    <div class="instructions mt-3">
+      <label for="instructions">Instructions</label><br/>
+      <textarea class="insText mt-1">{{instructions}}</textarea>
 
     </div>
-    <div class="meal">
+
+    <div class="meal mt-3">
       <p>What meal is his recipe for?</p>
-      <input type="radio" class="meal" name="meal" value="Breakfast" />
-      <label for="Breakfast">Breakfast</label><br />
-      <input type="radio" name="meal" value="Lunch" />
+      <input type="radio" class="meal" name="meal" value="Breakfast"/>
+      <label for="Breakfast">Breakfast</label><br/>
+      <input type="radio" name="meal" value="Lunch"/>
       <label for="Lunch">Lunch</label><br />
-      <input type="radio" name="meal" value="Dinner" />
+      <input type="radio" name="meal" value="Dinner"/>
       <label for="Dinner">Dinner</label>
     </div>
-    <div class="addFile">
+
+    <div class="addFile mt-3">
       <label for="myfile">Select a file:</label>
       <br />
-      <input type="file" id="myfile" name="myfile" />
+      <input type="file" id="myfile" name="myfile" class=""/>
     </div>
 
-    <div class="buttons">
-      <input type="submit" value="Submit" />
+    <div class="buttons mt-3">
+      <input type="submit" value="Submit" class="btn btn-outline-success"/>
       <button class="clear">Clear Recipe</button>
     </div>
   </form>
