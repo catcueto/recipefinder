@@ -1,103 +1,95 @@
 * {
-  box-sizing: border-box;
-}
-
-:root {
-  --black: #1b1b1b;
-  --morning-blue: #d4bebe;
-  --champagne: #eee0cb;
-  --grullo: #baa898;
-  --beau-blue: #bfd7ea;
+	box-sizing: border-box;
 }
 
 /* HOMEPAGE STYLING */
 
 body {
-  width: 80%;
-  margin: 2rem auto;
-  background-color: #fdf2e9;
-  font-family: "Rubik", "Montserrat" sans-serif;
+	width: 80%;
+	margin: 2rem auto;
+	background-color: #fdf2e9;
+	font-family: "Rubik", "Montserrat" sans-serif;
 }
 
 h1 {
-  font-size: 2.4rem;
-  color: var(--black);
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 2px;
+	font-size: 2.4rem;
+	color: var(--black);
+	text-transform: uppercase;
+	font-weight: 800;
+	letter-spacing: 2px;
 }
 
 h2 {
-  font-size: 1.7rem;
+	font-size: 1.7rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 h3,
 p {
-  margin: 3%;
-  color: var(--black);
+	margin: 3%;
+	color: var(--black);
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 a:hover,
 a:focus,
 a:active {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 600;
+	text-decoration: none;
+	color: inherit;
+	font-weight: 600;
 }
 
 nav a {
-  margin: 1rem;
-  text-decoration: none;
-  color: #1b1b1b;
-  font-size: 1.2rem;
+	margin: 1rem;
+	text-decoration: none;
+	color: #1b1b1b;
+	font-size: 1.2rem;
 }
 
 img {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-wrap: wrap;
 }
 
 /* Recipe Cards */
 .recent-cards .card {
-  flex-basis: 30%;
+	flex-basis: 30%;
 }
 
 .mealtime-cards .card {
-  flex-basis: 20%;
+	flex-basis: 20%;
 }
 
 .card {
-  filter: drop-shadow(10px 5px 4px #0000002a);
+	filter: drop-shadow(10px 5px 4px #0000002a);
 }
 
 .full-width {
-  width: 100%;
+	width: 100%;
 }
 
 hr {
-  border: solid #e76c00;
+	border: solid #e76c00;
 }
 
 /* Button */
 .newRecipeBtn {
-  border-radius: 2rem;
-  background-color: #e67e22;
-  color: #fff;
-  font-weight: 500;
-  border: none;
-  padding: 0 1.2rem 0 1.2rem;
+	border-radius: 2rem;
+	background-color: #e67e22;
+	color: #fff;
+	font-weight: 500;
+	border: none;
+	padding: 0 1.2rem 0 1.2rem;
 }
 
 .textBtn {
-  color: #fffcf8;
+	color: #fffcf8;
 }
