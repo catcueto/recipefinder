@@ -5,8 +5,8 @@ const { Recipe } = require("../../models");
 router.get("/:mealtime", async (req, res) => {
   try {
     // Grabs pagetitle from the parameters
-    const pageTitle = req.params.mealtime;
-    // TODO: capitalize
+    let pageTitle = req.params.mealtime;
+    pageTitle = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
 
 		// Grabs the recipe identified by their meal time
 		let mealtimeRecipes = await Recipe.findAll({

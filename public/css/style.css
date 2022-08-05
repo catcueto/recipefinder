@@ -46,30 +46,18 @@ img {
   height: auto;
   display: flex;
   flex-wrap: wrap;
-  /* min-width: 30%; */
+}
+
+.recent-cards .card {
+  flex-basis: 30%;
+}
+
+.mealtime-cards .card {
+  flex-basis: 20%;
 }
 
 .card {
-  flex: 0 1 33%;
-  /* flex-direction: row; */
-  flex-wrap: wrap;
-  width: 100%;
   filter: drop-shadow(10px 5px 4px #0000002a);
-}
-
-/* TODO: fix css */
-.recent-cards .cards {
-  flex: 0 1 33%;
-  flex-wrap: wrap;
-}
-
-.breakfast-cards {
-  flex: 0 0 20%;
-  flex-wrap: wrap;
-}
-
-.breakfast-cards img {
-  min-width: 20%;
 }
 
 .full-width {
