@@ -15,6 +15,7 @@ router.get("/", async (req, res) => {
 			order: [["time_created", "DESC"]],
 		});
 
+		// GET recent lunch recipes for homepage
 		let recentLunchRecipes = await Recipe.findAll({
 			where: {
 				mealtime: "lunch",
@@ -23,6 +24,7 @@ router.get("/", async (req, res) => {
 			order: [["time_created", "DESC"]],
 		});
 
+		// GET recent dinner recipes for homepage
 		let recentDinnerRecipes = await Recipe.findAll({
 			where: {
 				mealtime: "dinner",
@@ -76,6 +78,8 @@ router.get("/", async (req, res) => {
 	}
 });
 
+
+// GET - lets user access the individual recipe page 
 router.get("/recipe/:id", async (req, res) => {
 	try {
 		// GET recipe to show recipe details

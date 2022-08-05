@@ -8,7 +8,7 @@ const generateUniqueId = require("generate-unique-id");
 
 
 
-// This route takes users to the Addrecipe page
+// This route takes users to the addrecipe page
 router.get("/", (req, res) => {
 	try {
 		// if (req.session.logged_in) {
@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 	}
 });
 
-
+// POST - lets user to post a new recipe
 router.post("/", async (req, res) => {
 	try {
 

@@ -6,11 +6,3 @@ module.exports = {
 		// return latestRecipe;
 	},
 };
-
-//     ifEquals: (string1, string2, options) => {
-//         if (string1 == string2) {
-//             console.log("this", this);
-//             console.log("options",options);
-//             return options.fn(this); 
-//         }
-//     }
