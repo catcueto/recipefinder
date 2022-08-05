@@ -10,9 +10,12 @@
   --beau-blue: #bfd7ea;
 }
 
+/* HOMEPAGE STYLING */
+
 body {
   width: 80%;
   margin: 2rem auto;
+  background-color: #fffcf8;
 }
 
 h1 {
@@ -39,6 +42,9 @@ a {
 
 nav a {
   margin: 1rem;
+  text-decoration: none;
+  color: #1b1b1b;
+  font-size: 1.2rem;
 }
 
 img {
@@ -68,9 +74,19 @@ hr {
   border: solid black;
 }
 
-/* TODO: HOMEPAGE STYLING */
+.newRecipeBtn {
+  border-radius: 2rem;
+  background-color: #036851;
+  color: #fff;
+  border: none;
+  padding: 0 10px 0 10px;
+}
 
-.links {
+.button:hover {
+  background-color: #fff;
+  color: #013429;
   text-decoration: none;
-  color: #1b1b1b;
+}
+.textBtn {
+  color: #eee0cb;
 }
