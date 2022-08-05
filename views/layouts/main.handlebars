@@ -37,13 +37,13 @@
 
       <nav class="navbar navbar-dark d-flex">
         <section class="d-flex flex-row justify-content-around">
-          <a href="/api/mealtime/breakfast">Breakfast</a>
-          <a href="/api/mealtime/lunch">Lunch</a>
-          <a href="/api/mealtime/dinner">Dinner</a>
+          <a href="/api/mealtime/breakfast" class="links">Breakfast</a>
+          <a href="/api/mealtime/lunch" class="links">Lunch</a>
+          <a href="/api/mealtime/dinner" class="links">Dinner</a>
         </section>
         <section class="d-flex flex-row justify-content-around">
-          <a href="#">About</a>
-          <a href="#">Contact</a>
+          <a href="#" class="links">About</a>
+          <a href="#" class="links">Contact</a>
 
           <!-- Conditionally render login or logout ahrefs -->
           {{#if logged_in}}
@@ -55,7 +55,7 @@
         </section>
       </nav>
     </header>
-     <hr class="b-solid black">
+    <hr class="b-solid black" />
     <main class="d-flex flex-column flex-md-row flex-lg-row">
       {{{body}}}
     </main>

@@ -1,81 +1,88 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-    --black: #1b1b1b;
-    --morning-blue: #D4BEBE;
-    --champagne: #EEE0CB;
-    --grullo: #BAA898;
-    --beau-blue: #BFD7EA;
-  }
+  --black: #1b1b1b;
+  --morning-blue: #d4bebe;
+  --champagne: #eee0cb;
+  --grullo: #baa898;
+  --beau-blue: #bfd7ea;
+}
 
 body {
-    width: 80%;
-    margin: 2rem auto;
+  width: 80%;
+  margin: 2rem auto;
 }
 
 h1 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 h2 {
-    font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
-h3, p {
-    margin: 3%;
-    color: var(--black)
+h3,
+p {
+  margin: 3%;
+  color: var(--black);
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 nav a {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 img {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    /* min-width: 30%; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  /* min-width: 30%; */
 }
 
 .card {
-    flex: 0 1 33%;
-    /* flex-direction: row; */
-    flex-wrap: wrap;
-    width: 100%;
-    filter: drop-shadow(10px 5px 4px #0000002a);
+  flex: 0 1 33%;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  width: 100%;
+  filter: drop-shadow(10px 5px 4px #0000002a);
 }
-
 
 /* TODO: fix css */
 .recent-cards .cards {
-    flex: 0 1 33%;
-    flex-wrap: wrap;
+  flex: 0 1 33%;
+  flex-wrap: wrap;
 }
 
 .breakfast-cards {
-    flex: 0 0 20%;
-    flex-wrap: wrap;
+  flex: 0 0 20%;
+  flex-wrap: wrap;
 }
 
 .breakfast-cards img {
-    min-width: 20%;
+  min-width: 20%;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 hr {
-    border: solid black;
-  }
+  border: solid black;
+}
+
+/* TODO: HOMEPAGE STYLING */
+
+.links {
+  text-decoration: none;
+  color: #1b1b1b;
+}
