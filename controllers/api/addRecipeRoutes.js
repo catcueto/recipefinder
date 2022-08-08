@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Recipe = require("../../models/Recipe");
+const Recipe = require("../../models/recipe");
 
 // This route takes users to the addrecipe page
 router.get("/", (req, res) => {
