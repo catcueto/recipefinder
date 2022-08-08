@@ -24,7 +24,7 @@ Only authorized contributors may add to this repository.
 
 ## Links
 
-Deployed app:
+Deployed app: https://salty-island-34746.herokuapp.com/
 
 ![image](./public/images/app-screenshot1.png)
 
